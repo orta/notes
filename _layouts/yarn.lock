@@ -6559,9 +6559,9 @@ gatsby-telemetry@^1.10.0:
     node-fetch "^2.6.1"
     uuid "3.4.0"
 
-gatsby-theme-kb@^0.4.3:
+gatsby-theme-kb@latest:
   version "0.4.3"
-  resolved "https://registry.npmjs.org/gatsby-theme-kb/-/gatsby-theme-kb-0.4.3.tgz#2e69f2d3941a7055c7341023ea2bd080ad4bf500"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-kb/-/gatsby-theme-kb-0.4.3.tgz#2e69f2d3941a7055c7341023ea2bd080ad4bf500"
   integrity sha512-BmrgDfakABHnFDiyep73RmkZAGIyCaaPbMSPimfkxI0veTTojB9Qo09dgAUgPjvJYGVDJYYbgwz3P4Lv7qjZBQ==
   dependencies:
     "@gatsby-project-kb/transformer-wiki-references" "^0.2.1"
