@@ -3,7 +3,7 @@
   "editor.minimap.enabled": false,
   "editor.wrappingIndent": "indent",
   "editor.overviewRulerBorder": false,
-  "foam.edit.linkReferenceDefinitions": "withExtensions",
+  "foam.edit.linkReferenceDefinitions": "off",
   "vscodeMarkdownNotes.noteCompletionConvention": "noExtension",
   "[markdown]": {
     "editor.quickSuggestions": {
@@ -15,12 +15,6 @@
   "cSpell.language": "en-GB",
   "git.enableSmartCommit": true,
   "git.postCommitCommand": "sync",
-  "spellright.language": [
-    "en"
-  ],
-  "spellright.documentTypes": [
-    "markdown",
-    "plaintext"
   ],
   "files.exclude": {
     "_site/**": true
