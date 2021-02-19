@@ -6,7 +6,7 @@ This is OK, but a bit meh. When working on setting up staging vs prod for [cloud
 I opted for trying to get both environments represented in the same yml file. After some faffing, I came up with a pretty elegant answer.
 
 
-```yml
+```yaml
 name: Upload infra
 
 on:

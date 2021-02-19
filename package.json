@@ -2,6 +2,7 @@
   "workspaces":["_layouts"],
   "private": true,
   "scripts": {
-    "start": "yarn workspace site start"
+    "start": "yarn workspace site start",
+    "build": "yarn workspace site build"
   }
 }

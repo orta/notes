@@ -2,7 +2,7 @@
 
 When working in complex repos, you can use `working-dir` on a job to run the command in a specific folder. In this repo all the gatsby stuff lives in `_layouts`, so we want most of the actions jobs to run inside `_layouts`.
 
-```yml
+```yaml
 name: Deploy Site
 
 on:

@@ -14,9 +14,11 @@
   "author": "orta therox",
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^14.14.30",
     "gatsby": "^2.31.1",
     "gatsby-plugin-copy-files-enhanced": "^1.1.1",
     "gatsby-remark-copy-linked-files": "^2.10.0",
+    "gatsby-remark-shiki-twoslash": "latest",
     "gatsby-theme-kb": "latest"
   }
 }
