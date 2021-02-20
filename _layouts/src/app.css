@@ -27,6 +27,7 @@ pre .code-container {
 pre code {
   white-space: pre;
   -webkit-overflow-scrolling: touch;
+  padding: 0;
 }
 /* Let errors use the outer shiki for their absolute sizing, and not be affected by the scrolling of the code */
 pre data-err {
