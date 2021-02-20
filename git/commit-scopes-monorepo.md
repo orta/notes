@@ -29,6 +29,7 @@ The key one being `prepare-commit-msg` which runs a JS script:
 ```js twoslash
 // @strict: false
 /// <reference types="node" /> 
+// ---cut---
 // @ts-check
 import fs from "fs"
 import { execSync } from "child_process"
