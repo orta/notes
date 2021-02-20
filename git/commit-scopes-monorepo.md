@@ -26,7 +26,9 @@ As I'm mostly in JS projects, I use [husky v4](https://www.npmjs.com/package/hus
 
 The key one being `prepare-commit-msg` which runs a JS script:
 
-```ts
+```js twoslash
+// @strict: false
+/// <reference types="node" /> 
 // @ts-check
 import fs from "fs"
 import { execSync } from "child_process"

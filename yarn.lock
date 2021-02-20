@@ -1964,19 +1964,19 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
-"@typescript/twoslash@1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@typescript/twoslash/-/twoslash-1.1.4.tgz#e5693334ae39a90aae43d747f902eb0bebd47640"
-  integrity sha512-u5/V/Z3e9nMJ/TIKzyLfudUQrNa7ctjHxQ7NS05VveQPLJNlc/7hbhuuRy101BF54xy0KiYpQ0h/Ha5J7SKehg==
+"@typescript/twoslash@1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@typescript/twoslash/-/twoslash-1.1.6.tgz#43a5c860ccebf7a06884a39c0b4c8f1cb4d1132f"
+  integrity sha512-qDNwrotiD2DiwrduP6A6ZuB6kaz8vN3n0hGGBFB6ZmCRqiecPsPa0TjK8xk+MJA4ffTI18L1E/NBjkgbSK65Ew==
   dependencies:
-    "@typescript/vfs" "1.3.2"
+    "@typescript/vfs" "1.3.3"
     debug "^4.1.1"
     lz-string "^1.4.4"
 
-"@typescript/vfs@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@typescript/vfs/-/vfs-1.3.2.tgz#4a9f207a74b93e63b255740ca9683d7eb09ee670"
-  integrity sha512-1moNIcxUtDextSNvhGtJcmNZX8gZgRBcea2UlRmKI7TX3fRZ4lHCharaDQUQeguk1rrqxCfOifFZg+Rx/Mi7Lw==
+"@typescript/vfs@1.3.3":
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/@typescript/vfs/-/vfs-1.3.3.tgz#a045508e9ec92fd29cb29e1984db83b6bc3579d4"
+  integrity sha512-C5+klHPSpjUBTmBY0G/QeNamVtnLThGml+Q7i5No7B5HaGB7gcncT0T6uyk1AvnVy02vG/O5iub+YZavYHOl1w==
   dependencies:
     debug "^4.1.1"
 
@@ -6529,15 +6529,15 @@ gatsby-remark-double-parenthesis-link@^0.1.2:
     slugify "^1.4.0"
     unist-util-visit "^2.0.2"
 
-gatsby-remark-shiki-twoslash@latest:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-shiki-twoslash/-/gatsby-remark-shiki-twoslash-1.0.0.tgz#b9e910f6f6ee71fa23263370ab4f67820849d298"
-  integrity sha512-i9g4SoIn/Y13GkYnePDMezRTEnGF/SajMqaw/emKouKCn8NESGqGpKz5xtO9A/CCNESnLWpcIPS08++PUjpx7A==
+gatsby-remark-shiki-twoslash@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-shiki-twoslash/-/gatsby-remark-shiki-twoslash-1.0.1.tgz#5b2ea53654c04183fa1051e388cafa381af35744"
+  integrity sha512-PV5bQjzvkeTEOW+eNSABQM3rmCO0HVfHv6eYDegZSyWf15GKscwnZlhbEGGtZB/g6N4FBllnJJXvDnEfvctDgg==
   dependencies:
-    "@typescript/twoslash" "1.1.4"
-    "@typescript/vfs" "1.3.2"
+    "@typescript/twoslash" "1.1.6"
+    "@typescript/vfs" "1.3.3"
     shiki "^0.9.1"
-    shiki-twoslash "1.0.0"
+    shiki-twoslash "1.2.4"
     typescript "*"
     unist-util-visit "^2.0.0"
 
@@ -12404,13 +12404,13 @@ shell-quote@1.6.1:
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
 
-shiki-twoslash@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/shiki-twoslash/-/shiki-twoslash-1.0.0.tgz#9aa7dbc36acdc821d6546b6aa10cc0f9847eebd9"
-  integrity sha512-/pEXrGA3Zmspp93tM71dreJPTGXx4yWXFcePhanV625ItQ+od2+2fj7aE49TBNKS1iaLpShXjFQPt+P1pJAbfw==
+shiki-twoslash@1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/shiki-twoslash/-/shiki-twoslash-1.2.4.tgz#f0da77447c37229f2ca23596bc3a01291a33e6c8"
+  integrity sha512-0Z4kWPpV5Nqjtsb5lynSuV+U7aDBsK+ruq3VMptw7OyQ5ApZ3AeB86X0BWjcujArH7HZ35BWu7eWzk936O6uOg==
   dependencies:
-    "@typescript/twoslash" "1.1.4"
-    "@typescript/vfs" "1.3.2"
+    "@typescript/twoslash" "1.1.6"
+    "@typescript/vfs" "1.3.3"
     shiki "^0.9.1"
     typescript "*"
 
