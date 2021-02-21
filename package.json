@@ -1,5 +1,7 @@
 {
-  "workspaces":["_layouts"],
+  "workspaces": [
+    "_layouts"
+  ],
   "private": true,
   "scripts": {
     "start": "yarn workspace site start",

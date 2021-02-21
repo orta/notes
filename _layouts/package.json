@@ -20,5 +20,8 @@
     "gatsby-remark-copy-linked-files": "^2.10.0",
     "gatsby-remark-shiki-twoslash": "^1.0.1",
     "gatsby-theme-kb": "latest"
+  },
+  "devDependencies": {
+    "gatsby-remark-opengraph": "^2.0.1"
   }
 }
