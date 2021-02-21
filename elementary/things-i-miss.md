@@ -1,4 +1,4 @@
-## Things I Miss in elementary OS
+# Things I Miss in elementary OS
 
 I'm a long-term Mac dev, using elementary OS most of the time. I'm happy with the OS, but here's some flaws 
 

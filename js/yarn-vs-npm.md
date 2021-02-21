@@ -1,4 +1,4 @@
-## Yarn vs npm
+# Yarn vs npm
 
 > "Use yarn, mostly v1, embrace workspaces"
 

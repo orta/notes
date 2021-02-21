@@ -1,4 +1,4 @@
-## Yarn Workspaces
+# Yarn Workspaces
 
 An abstraction absolutely worth learning, npm has replicated the feature in [npm 7](https://docs.npmjs.com/cli/v7/using-npm/workspaces).
 
