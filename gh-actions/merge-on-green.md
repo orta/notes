@@ -8,18 +8,18 @@ So, to get it set up you need to first go to `Settings > Branches`:
 
 - https://github.com/danger/danger-js/settings/branches
 
-![Branch settings](/assets/img/branches.png)
+![Branch settings](/notes/assets/img/branches.png)
 
 Then create a new rule:
 
-![Branch settings](/assets/img/branch-protect.png)
+![Branch settings](/notes/assets/img/branch-protect.png)
 
 Select the CI statuses which need to pass, basically your tests, then hit "Create" at the bottom. Now you have the branch protection set up you can enable "Allow auto-merge" in the GitHub UI:
 
-![Auto Merge](/assets/img/auto-merge.png)
+![Auto Merge](/notes/assets/img/auto-merge.png)
 
 Then in a PR when you are ready, you get the "Enable auto-merge" button where the "Merge PR" button used to be:
 
-![Auto Merge in a PR](/assets/img/pr-auto-merge.png)
+![Auto Merge in a PR](/notes/assets/img/pr-auto-merge.png)
 
 That's it, now you have to do this for every repo you care about. 
