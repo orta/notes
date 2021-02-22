@@ -7,11 +7,10 @@ import Helmet from "react-helmet"
 
 export default function MyTopic(props) {
   useEffect(setupTwoslashHovers, [])
-  console.log(props)
   return (
     <div className="orta">
          <Helmet>
-           <meta property="og:image" content={props.currentLocation.href + "og-image.jpg"} />
+           <meta property="og:image" content={props.currentLocation.pathname + "/og-image.jpg"} />
         </Helmet>
       <Topic {...props} />
     </div>
