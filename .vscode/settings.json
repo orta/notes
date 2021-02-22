@@ -15,7 +15,6 @@
   "cSpell.language": "en-GB",
   "git.enableSmartCommit": true,
   "git.postCommitCommand": "sync",
-  ],
   "files.exclude": {
     "_site/**": true
   }
