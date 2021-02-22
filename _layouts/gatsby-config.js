@@ -58,23 +58,24 @@ module.exports = {
                 const title = md.split("\n")[0].replace(/#/g, "").trim();
                 const preview = md.split("\n")[2].trim().replace(/\[(.*?)\][\[\(].*?[\]\)]/g, '$1')
 
+                const x = 290
                 return [
                   {
                     text: title,
-                    y: 120,
-                    x: 18,
-                    maxWidth: 1200 - 18 * 2,
-                    color: "#ffffff",
+                    y: 40,
+                    x: x,
+                    maxWidth: 1200 - x,
+                    color: "#000000",
                     font: require.resolve("./src/assets/Roboto-Bold.ttf"),
                   },
                   {
                     text: preview.slice(0, 300),
                     fontSize: 40,
-                    maxWidth: 1200 - 18 * 2,
+                    maxWidth: 1200 - x,
                     font: require.resolve("./src/assets/Roboto-Regular.ttf"),
-                    y: 220,
-                    x: 18,
-                    color: "#ffffff",
+                    y: 160,
+                    x: x,
+                    color: "#000000",
                   },
                 ];
               },
