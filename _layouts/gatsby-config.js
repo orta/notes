@@ -29,7 +29,7 @@ module.exports = {
           defaultPluginMdx.options.gatsbyRemarkPlugins.push({
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
-              ignoreFileExtensions: ["md", "mdx"],
+              // ignoreFileExtensions: ["md", "mdx"],
             },
           });
 
@@ -85,6 +85,17 @@ module.exports = {
           return defaultPluginMdx;
         },
       },
-    }
+    },
+    {
+      // this plugin makes sure your static files will be served by gatsby,
+      // if you have multiple directories, copy this plugin section and specify other directory
+      // check https://github.com/csath/gatsby-plugin-copy-files-enhanced to find docs for this plugin
+      resolve: 'gatsby-plugin-copy-files-enhanced',
+      options: {
+        source: path.resolve(__dirname, `../assets`),
+        destination: '/assets',
+        purge: false,
+      },
+    },
   ],
 };
