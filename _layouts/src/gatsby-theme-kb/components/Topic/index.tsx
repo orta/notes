@@ -11,7 +11,7 @@ export default function MyTopic(props) {
   return (
     <div className="orta">
          <Helmet>
-           <meta property="og:image" content={withPrefix(props.file.fields.slug + "/og-image.jpg")} />
+           <meta property="og:image" content={"https://orta.io" + withPrefix(props.file.fields.slug + "/og-image.jpg")} />
         </Helmet>
       <Topic {...props} />
     </div>
