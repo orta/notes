@@ -3,9 +3,9 @@ const path = require("path");
 module.exports = {
   pathPrefix: `/notes`,
   siteMetadata: {
-    title: `Notes`, // Replace it with your site's title
-    author: `Orta Therox`, // Replace it with your name
-    description: `Notes and things`, // Replace it with your site's description
+    title: `Notes`, 
+    author: `Orta Therox`, 
+    description: `A growing wiki of linked notes from @orta`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
