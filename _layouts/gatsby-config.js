@@ -69,10 +69,10 @@ module.exports = {
                   },
                   {
                     text: preview.slice(0, 300),
-                    fontSize: 30,
+                    fontSize: 40,
                     maxWidth: 1200 - 18 * 2,
                     font: require.resolve("./src/assets/Roboto-Regular.ttf"),
-                    y: 200,
+                    y: 220,
                     x: 18,
                     color: "#ffffff",
                   },
