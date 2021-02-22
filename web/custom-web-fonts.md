@@ -1,13 +1,13 @@
-## User Font Choices on a Web Page
+# User Font Choices on a Web Page
 
 During the creation of the TypeScript website, we debated the font for code for quite a while. I'm not sure anyone was individually happy with the outcome to use [Cascadia](https://github.com/microsoft/cascadia-code#readme), but it felt like the right thing for the website. Cut to a year after shipping, and I came back to this problem in a way that makes everyone happy.
 
 Things we don't want:
 
-- 1. New fancy web tech
-- 2. Flashes of unstyled content (FOAC)
-- 3. Forcing JS in the app
-- 4. Loading every possible font ahead of time
+1. New fancy web tech
+2. Flashes of unstyled content (FOAC)
+3. Forcing JS in the app
+4. Loading every possible font ahead of time
 
 Let's go through these incrementally.
 
@@ -205,7 +205,12 @@ This isn't too difficult based on the code in the previous examples, basically j
 JS only makes differences from that. You can't set the `localStorage` without JS, so it's fine to use JS to control the
 theme selection. I use React here, but the code can just be DOM + JS.
 
-```ts
+```tsx twoslash
+import React, {  useState } from "react"
+
+let hasLocalStorage = false
+try { hasLocalStorage = typeof localStorage !== `undefined` } catch {}
+
 export const Customize = () => {
   const customFontOverride = (hasLocalStorage && localStorage.getItem("force-font")) || "cascadia";
   const [fontValue, setFont] = useState(customFontOverride);

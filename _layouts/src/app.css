@@ -9,6 +9,11 @@ pre {
   overflow: auto;
   position: relative;
 }
+
+.language-id {
+  margin-bottom: 12px;
+}
+
 pre.shiki > .code-container > a {
   display: none;
 }
@@ -99,4 +104,8 @@ pre:hover data-lsp {
 .dark-mode pre.shiki {
   -webkit-filter: invert(98%) hue-rotate(180deg);
   filter: invert(98%) hue-rotate(180deg);
+}
+
+ol li {
+  list-style: decimal;
 }
