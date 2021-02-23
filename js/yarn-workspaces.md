@@ -23,3 +23,17 @@ A yarn workspace is a way to chunk code together in a single repo. Some examples
 - Web infra
 
 
+From there, I give all of the packages a script for `"bootstrap"`, `"build"` and `"test"` - they can be NOOPs if it doesn't need it. 
+
+My root `package.json` then has scripts like:
+
+```json
+{
+  "scripts": {
+    "bootstrap": "yarn workspaces foreach -v -t --exclude root run bootstrap && BOOTSTRAPPING=true yarn workspaces foreach -v -t --exclude root run build",
+    "start": "yarn workspace typescriptlang-org stast",
+    "build": "yarn workspaces foreach -v -t --exclude root --exclude typescriptlang-org run build",
+    "build-site": "yarn workspace typescriptlang-org build",
+  }
+}
+```
