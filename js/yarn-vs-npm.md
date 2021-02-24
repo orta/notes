@@ -2,21 +2,30 @@
 
 > "Use yarn, mostly v1, embrace workspaces"
 
-When I clone a JS/TS repo and it's not using yarn I usually assume the repo came from someone new to the JS ecosystem. Yarn came out a few years ago and npm is still playing catch-up on features. Originally a Facebook project, but nowadays is ran by non-Facebook folks. Over time, Yarn was re-written and focused on solving different problems than I seeing.
+When I clone a JS/TS repo and it's not using yarn I usually assume the repo came from someone new to the JS ecosystem. Yarn came out a few years ago and npm is still playing catch-up on features. Originally a Facebook project, but nowadays is ran by non-Facebook folks. Over time, Yarn was re-written and focused on solving different problems than I am seeing.
 
 The npm contributors at the time probably considered creating Yarn a hostile move, but it offered a lot of features that were essential for reliably building apps. People in the JS ecosystem had dependency trees which were easily thousands of deps big but didn't even have a lockfile, bonkers. 
 
-IMO Yarn is the CLI developer experience I think all other bundler/dependency manager CLI's should strive for.
+IMO, Yarn is the CLI developer experience I think all other bundler/dependency manager CLI's should strive for.
 
 ### Great features
 
 - [[yarn-workspaces]] - is a great want to handle multiple contexts in one repo
 - `yarn upgrade-interactive` is very impressive, especially when you have dependency trees the size of nodejs projects
 - The way that you can write [`yarn tsc` to run TypeScript](https://github.com/npm/rfcs/pull/279#issuecomment-748102000) from your local dependencies is reason enough to use yarn's CLI even in npm projects  
+- [`"resolutions"`](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) - solves huge JS dep tree problems very elegantly
 
 #### Yarn 1 vs npm 7
 
-To be honest, enough changed in npm 7 that I'm not sure how many of my original arguments on yarn vs npm still hold. I've not upgraded in part because their [`peerDependencies`](https://github.blog/2021-02-02-npm-7-is-now-generally-available/) change, and in other part because I don't use npm already and I think the CLI experience is worse. `npm exec` is a step forwards though.
+To be honest, enough changed in npm 7 that I'm not sure how many of my original arguments on yarn vs npm still hold. I've not upgraded locally in part because their [`peerDependencies`](https://github.blog/2021-02-02-npm-7-is-now-generally-available/) change, and in other part because I don't use npm already and I think the CLI experience is worse. [`npm exec`](https://docs.npmjs.com/cli/v7/commands/npm-exec) is a good step forwards though. So now you can do:
+
+```sh
+$ yarn tap --bail test/foo.js
+# vs
+$ npm exec -- tap --bail test/foo.js
+```
+
+Still not focused, but better than before  which used a completely different command: `npx`.
 
 #### Yarn 1 vs 2+
 
@@ -24,9 +33,9 @@ The userbase of yarn is split because yarn 2 focused heavily on trying to remove
 
 I think people started to adopt yarn 2 once the team were very explicit that you could avoid PNP. PNP does solve a real problem, but its trade-offs aren't worth it and I would have still `.gitignored` it's version of the `node_modules` somewhat negating the whole point.
 
-I've only moved two projects to yarn 2 (the TypeScript Website and my games) and I don't really gain much. On the net, it was probably a bit more of a negative. I've got more random files in my repo (yarn config to remove PNP, the JS for the yarn 2 version, the JS for plugins) which I wouldn't have had I stayed on v1, my most used commands (outside of `yarn install`) were moved to [plugins](https://github.com/microsoft/TypeScript-Website/tree/v2/.yarn/plugins/%40yarnpkg) which I guess shows that my usage falls away from the mainstream. 
+I've only moved two projects to yarn 2 (the TypeScript Website and my games) and I don't really gain much. On the net, it was probably a bit more of a negative but I needed some practical experience to make an opinion. After switching, I've got more random files in my repo (yarn config to remove PNP, the JS for the yarn 2 version, the JS for plugins) which I wouldn't have had I stayed on v1, my most used commands (outside of `yarn install`) were moved to [plugins](https://github.com/microsoft/TypeScript-Website/tree/v2/.yarn/plugins/%40yarnpkg) which I guess shows that my usage falls away from the mainstream and the CLI output is worse to look at.
 
-I'd love to use yarn 2 everywhere because the plugin system for v2 is compelling. I'd like to build [yarn-crev](https://github.com/crev-dev)) but it'd require moving any projects to use v2 before I can use the plugin which is not worth it. 
+That said, I'd love to use yarn 2 everywhere because the plugin system for v2 is compelling. I'd like to build [yarn-crev](https://github.com/crev-dev)) but it'd require moving any projects to use v2 before I can use the plugin (and the plugin would need wide-adoption to be useful) which makes it not worth putting the time in to build. 
 
 #### Yarn 1 vs PNPM
 
