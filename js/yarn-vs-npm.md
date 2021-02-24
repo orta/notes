@@ -1,3 +1,6 @@
+---
+published: 2021-02-24T22:12:03.284Z
+---
 # Yarn vs npm
 
 > "Use yarn, mostly v1, embrace workspaces"
@@ -39,7 +42,7 @@ That said, I'd love to use yarn 2 everywhere because the plugin system for v2 is
 
 #### Yarn 1 vs PNPM
 
-I've made a few repos with [pnpm](https://pnpm.js.org) to get a sense of whether pnpm could be a replacement for yarn 1 for me. There's some interesting ideas in there. I wasn't a particular fan of having workspace config in it's own yml file vs the `package.json`, nor that it copies npm's CLI experience for running scripts/binaries instead of yarns. 
+I've made a few repos with [pnpm](https://pnpm.js.org) to get a sense of whether pnpm could be a replacement for yarn 1 for me. There's some interesting ideas in there. I wasn't a particular fan of having workspace config in it's own yml file vs the `package.json` but that's pretty minor, but it copies npm's CLI experience for running scripts/binaries instead of yarn's which is more of a blocker. So, I've started a discussion about [potentially moving](https://github.com/pnpm/pnpm/discussions/3191).
 
 #### Future
 

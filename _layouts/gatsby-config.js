@@ -6,6 +6,7 @@ module.exports = {
     title: `Notes`, 
     author: `Orta Therox`, 
     description: `A growing wiki of linked notes from @orta`,
+    siteUrl: "https://orta.io/notes"
   },
   plugins: [
     'gatsby-plugin-react-helmet',
