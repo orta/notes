@@ -32,7 +32,7 @@ Still not focused, but better than before  which used a completely different com
 
 #### Yarn 1 vs 2+
 
-The userbase of yarn is split because yarn 2 focused heavily on trying to remove the `node_modules` folder [with PNP](https://next.yarnpkg.com/features/pnp) which was probably a mistake. Using PNP means yarn overriding the `require` statement which moves the node_modules into tar files in your repo. 
+The userbase of yarn is split because yarn 2 focused heavily on trying to remove the `node_modules` folder [with PNP](https://next.yarnpkg.com/features/pnp) which was probably a mistake. Using PNP means yarn overriding the `require` statement which moves the node_modules into tar files in your repo. The tar files can then be put into your source control.
 
 I think people started to adopt yarn 2 once the team were very explicit that you could avoid PNP. PNP does solve a real problem, but its trade-offs aren't worth it and I would have still `.gitignored` it's version of the `node_modules` somewhat negating the whole point.
 
