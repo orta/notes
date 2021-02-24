@@ -48,6 +48,8 @@ I've made a few repos with [pnpm](https://pnpm.js.org) to get a sense of whether
 
 Yarn 2+ is unlikely to be compelling enough to warrant all the extra files in every repo considering how yarn 1 works perfectly well for the task of getting deps, setting up complex projects and running commands with a great experience. 
 
-Because using `yarn` defaults to v1 means nearly all of the time I'll be using that version, which on the long run is a tad worrying because v1 isn't getting updates and support anymore. Though sometimes the lack of change can be a good thing. So I'll be sticking with v1 in nearly every repo.
+It's important to note that the yarn team are OSS folks solving problems they want to solve, and their choice of direction is totally cool with me. I know what it's like to lead large OSS software projects and any decision at this scale is going to affect people differently. My workflow is my workflow, and the grooves of that workflow came from extended usage of yarn 1 everywhere.
 
-Given the lack of updates, it's possible that npm will now catch up with yarn 1, npm 7 has taken a lot of the good features of yarn 1 and within a few years maybe we'll see experienced JS folks people move back to npm. 
+Because using the command `yarn` defaults to v1 when you install node, then nearly all of the time I'll be using that version. On the long run this is a tad worrying because v1 isn't getting updates and support anymore. Though sometimes the lack of change can be a good thing. My plan is to generally stick with v1 in nearly every repo unless I see a really compelling reason to change.
+
+An interesting side-effect is that given v1's the lack of updates, it's possible that npm will now catch up with yarn 1. npm 7 has taken a lot of the good features of yarn 1 and within a few years maybe we'll see experienced JS folks people move back to npm.
