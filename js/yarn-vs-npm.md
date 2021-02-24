@@ -54,8 +54,16 @@ It's important to note that the yarn team are OSS folks solving problems they wa
 
 Because using the command `yarn` defaults to v1 when you install node, then nearly all of the time I'll be using that version. On the long run this is a tad worrying because v1 isn't getting updates and support anymore. Though sometimes the lack of change can be a good thing. My plan is to generally stick with v1 in nearly every repo unless I see a really compelling reason to change.
 
-To imagine what would move yarn 2 to be my everyday package manager: the `yarn` command would need to default to yarn 2, and the `node_modules` would be the default behavior out of the box. It'd be _nice_ to have the interactive plugins as default, but the workspaces one I can live with installing when needed in a monorepo.
+To imagine what would move yarn 2+ to be my everyday package manager: 
 
-This has its own downsides in comparison to the current behavior (yarn 2 is opt in per-project) but 
+ - Ship `yarn` like a normal module where the version you have is the latest
+ - Make the `node_modules` linker be default behavior out of the box
+ - Make running `yarn install` only add a lockfile by default
 
-An interesting side-effect is that given v1's the lack of updates, it's possible that npm will now catch up with yarn 1. npm 7 has taken a lot of the good features of yarn 1 and within a few years maybe we'll see experienced JS folks people move back to npm.
+This means you get a 'traditional' / 'works how node works' / 'loose' setup for most projects and give folks the chance to opt-in to more restrictive and powerful options. This pattern works well for TypeScript, people migrate to strict in bigger projects all the time. 
+
+( It'd be _nice_ to have the interactive plugins as default, but the workspaces one I can live with installing when needed in a monorepo. )
+
+Again, I respect the Yarn team's choices to _not_ do this, making these call would be going back on what I think they consider the value of yarn itself when they shipped v2. For me, the value of yarn has been a great UI, fast download/installer, a solid resolver which avoids dupes and with later releases on workspace support. This echoes what I wrote a few months before [Yarn 1.0 came out](https://artsy.github.io/blog/2017/02/05/Front-end-JavaScript-at-Artsy-2017/#Yarn).
+
+Worth thinking about:  An interesting side-effect from v1's the lack of updates, it's possible that npm will now catch up with yarn 1. npm 7 has taken a lot of the good features of yarn 1 and within a few years maybe we'll see experienced JS folks people move back to npm.
