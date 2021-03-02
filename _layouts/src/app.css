@@ -71,6 +71,9 @@ pre .error-behind {
   user-select: none;
   color: #ffeeee;
 }
+pre div.line {
+  min-height: 0.7rem;
+}
 data-lsp {
   /* Ensures there's no 1px jump when the hover happens above */
   border-bottom: 1px dotted transparent;
@@ -108,4 +111,8 @@ pre:hover data-lsp {
 
 ol li {
   list-style: decimal;
+}
+
+.site-sidebar__link {
+  display: block;
 }
