@@ -9,7 +9,7 @@ OK, so you have to pick one?
 - **Being more optimistic** - [Enlightenment Now: The Case for Reason, Science, Humanism, and Progress](https://www.audible.com/pd/Nonfiction/Enlightenment-Now-Audiobook/B075FBZBLT?ref=a_a_library_c4_libItem_0_B075FBZBLT&pf_rd_p=ae76b2bb-e63d-4a67-b357-dab3dee05ca1&pf_rd_r=508W7VJ326X9N4RJ8B9P&)
 - **A dark story** - [The Library at Mount Char](https://www.penguinrandomhouse.com/books/240942/the-library-at-mount-char-by-scott-hawkins/9780553418620/)
 
-#### Fiction
+## Fiction
 
 | Recommendation       | Explanation |
 | -------------------- |-------------|
@@ -19,7 +19,7 @@ OK, so you have to pick one?
 | [HPMOR](http://hpmor.com) | Harrowing. Beautiful. I can discuss it at length. Fan-fiction, no joke. Great. |
 | [The Broken Earth series](https://www.audible.com/series/The-Broken-Earth-Audiobooks/B017RGQXY6) | Every book won a hugo award 3 years in a row |
 
-#### Speculative fiction
+## Speculative fiction
 
 | Recommendation       | Explanation |
 | -------------------- |-------------|
@@ -31,7 +31,7 @@ OK, so you have to pick one?
 
 
 
-#### Science fiction
+## Science fiction
 
 | Recommendation       | Explanation |
 | -------------------- |-------------|
@@ -40,7 +40,7 @@ OK, so you have to pick one?
 | [The Three Body Problem](https://www.audible.com/pd/Sci-Fi-Fantasy/The-Three-Body-Problem-Audiobook/B00P0277C2?ref=a_a_library_c4_libItem_8_B00P0277C2&pf_rd_p=ae76b2bb-e63d-4a67-b357-dab3dee05ca1&pf_rd_r=508W7VJ326X9N4RJ8B9P&&) | Stunning chinese sci-fi. |
 | [The Quantum Thief](https://www.audible.com/pd/The-Quantum-Thief-Audiobook/B00505UB2W?qid=1535398537&sr=sr_1_3&ref=a_search_c3_lProduct_1_3&pf_rd_p=e81b7c27-6880-467a-b5a7-13cef5d729fe&pf_rd_r=R59HNQ54XYQXVNF80RR8&) | "ubiquitous public-key encryption, people communicating by sharing memories, and a race of hyper-advanced humans who originated as MMORPG guild members" |
 
-#### Life
+## Life
 
 | Recommendation       | Explanation |
 | -------------------- |-------------|
@@ -49,7 +49,7 @@ OK, so you have to pick one?
 | [The Stuff of Thought](https://en.wikipedia.org/wiki/The_Stuff_of_Thought) | I read this when [learning Portuguese](http://orta.github.io/on/being/23/) and found it helped cement a lot of hard language ideas.|
 | [Eating Animals](http://www.amazon.co.uk/gp/product/B00390BE7G/) | Interesting essay on the authors dilemma of should I raise my kid a vegetarian. |
 
-#### The non-programming bits of programming
+## The non-programming bits of programming
 
 | Recommendation       | Explanation |
 | -------------------- |-------------|
@@ -62,7 +62,7 @@ OK, so you have to pick one?
 | [Understanding Complexity](https://www.audible.com/pd/Understanding-Complexity-Audiobook/1629976849?ref=a_library_t_c5_libItem_&pf_rd_p=85df3330-9dc4-4a45-ae69-93cc2fc25ca4&pf_rd_r=98XAPQFKVP9RRRFAJ9HT) | How to think of communities | 
 | [Working in Public: The Making and Maintenance of Open Source Software](https://press.stripe.com/) | A great overview of how OSS is made | 
 
-#### Design
+## Design
 
 | Recommendation       | Explanation |
 | -------------------- |-------------|
@@ -71,7 +71,7 @@ OK, so you have to pick one?
 | [Thinking with Type](http://www.amazon.co.uk/Design-Hackers-Reverse-Engineering-Beauty/dp/1119998956?ie=UTF8&psc=1&redirect=true&ref_=oh_aui_detailpage_o03_s01) | Reviews don't seem amazing, but I really liked the 1st edition, so YOLO. |
 | [Information is Beautiful](http://www.amazon.co.uk/Information-Beautiful-Edition-David-McCandless-x/dp/0007492898?ie=UTF8&keywords=information%20is%20beautiful&qid=1460045737&ref_=sr_1_1&sr=8-1) | Less of a pragmatic book, but a great ideas resource for presenting complex information. |
 
-#### Programming
+## Programming
 
 
 | Recommendation       | Explanation |
@@ -80,12 +80,12 @@ OK, so you have to pick one?
 | [Working Effectively With Legacy Code](http://www.amazon.co.uk/gp/product/B005OYHF0A/) |  Code with no tests = legacy. How to deal with this.|
 | [Growing Object-Oriented Software, Guided by Tests](http://www.amazon.co.uk/Growing-Object-Oriented-Software-Guided-Signature/dp/0321503627/ref=sr_1_1?ie=UTF8&qid=undefined&sr=8-1&keywords=growing+object-oriented+software+guided+by+tests) | The story of how TDD got created, and techniques for applying testing to projects. |
 
-#### TypeScript
+## TypeScript
 
 Obviously start with the handbook, but then: 
 
 | Recommendation       | Explanation |
 | -------------------- |-------------|
-| [Programming TypeSCript](https://www.oreilly.com/library/view/programming-typescript/9781492037644/) |  From 0 to  productive |
+| [Programming TypeScript](https://www.oreilly.com/library/view/programming-typescript/9781492037644/) |  From 0 to  productive |
 | [Effective TypeScript](https://www.oreilly.com/library/view/effective-typescript/9781492053736/) |  From productive to great |
 | [TypeScript in 50 Lessons](https://www.smashingmagazine.com/2020/11/typescript-in-50-lessons-release/) | From JS to TS |
