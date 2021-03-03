@@ -35,7 +35,7 @@ We'd need to start by having Props which look something like:
 
 ```ts
 interface GameProps {
-    style: { tile: string, background: string, found: string },
+    style: { text: string, tileBG: string, tileFoundBG: string },
     columns: Array<{ letters: string[] }>
 }
 ```
@@ -43,6 +43,8 @@ interface GameProps {
 Then, because we know as you go through the game finding words and selecting letters, we'll need some sort of way to describe the changes from the original baseline, where here I moved the first column down by one:
 
 ![pic of the game Typeshift with words found](/notes/assets/img/typeshift-2.png)
+
+We'll mix those props in with the changing settings:
 
 ```ts
 interface GameState {
@@ -62,8 +64,7 @@ interface GameState {
 
 So, to start up the game we'd need a way to grab or generate the props and state. Then this can be put into the [Redux store](https://redux.js.org/api/store). Once the store is ready, then you can create a renderer.
 
-
- As we're talking about Phaser, then that means making a [Phaser Scene](https://phaser.io/phaser3/contributing/part5) which subscribes to the Redux store.
+ As we're talking about Phaser, that means making a [Phaser Scene](https://phaser.io/phaser3/contributing/part5) which subscribes to the Redux store.
 
 ```ts
   const props = await host.getProps()
@@ -104,12 +105,9 @@ import { columnsUpdated } from "./updates/columnsUpdated"
 import { resetSelection, selectionUpdated } from "./updates/selectionUpdate"
 import { commitSelectionUpdated } from "./updates/commitSelectionUpdate"
 
-type GameState = {
-  store: TypeshiftStore
-}
 
 export let TypeshiftScene = class TypeshiftSceneClass extends extends Phaser.Scene {
-  state: GameState & GameProps
+  store: TypeshiftStore
   columns: Column[]
 
   create() {
@@ -118,7 +116,7 @@ export let TypeshiftScene = class TypeshiftSceneClass extends extends Phaser.Sce
     setupMouseInput(this)
 
     // Setup column UI and then "reset" to the current state
-    const state = this.state.store.getState()
+    const state = this.store.getState()
     this.columns = state.columns.map((c, i) => new Column(this, i))
     this.columns.forEach(c => this.add.existing(c))
     resetSelection(this, state)
@@ -128,7 +126,7 @@ export let TypeshiftScene = class TypeshiftSceneClass extends extends Phaser.Sce
   }
 
   stateUpdated() {
-    const newState = this.state.store.getState()
+    const newState = this.store.getState()
     // Do we need to make changes?
     if (!newState.ui.length) return
 
@@ -137,7 +135,7 @@ export let TypeshiftScene = class TypeshiftSceneClass extends extends Phaser.Sce
       updates[action["type"]](this, newState, action)
     }
 
-    this.state.store.dispatch(animationsDone())
+    this.store.dispatch(animationsDone())
   }
 }
 
@@ -210,13 +208,13 @@ export const createGameStore = (initialState: GameState) => {
 }
 ```
 
-This setup means that when an this code is called:
+This setup means when code like this is called:
 
 ```ts
 store.dispatch(up())
 ```
 
-It is the responsibility of `moveColumns` to edit the app's state, and to let the renderer know what sort of changes it should make to the UI:
+It becomes the responsibility of `moveColumns` to edit the app's state, and to let the renderer know what sort of changes it should make to the UI:
 
 ```ts
 export const moveColumns = (state: GameState, dir: Direction) => {
@@ -264,6 +262,8 @@ export const columnsUpdated = async (game: TypeshiftSceneGame, state: GameState,
 ```
 
 In this case, the responsibility for this function is to dive into the `game`'s 'internals' aka the exposed Phaser DOM on the class of the `TypeshiftSceneGame` and set the Y position of the columns according to the (now updated) state.
+
+I spent some time thinking about whether uiactions should be async to handle chaining transitions for animations, and _so far_ have not needed it. We'll see whether that holds.
 
 ### Flow
 
