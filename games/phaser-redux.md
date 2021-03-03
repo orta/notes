@@ -290,3 +290,31 @@ This might feel pretty abstract for small-ish games, but it allows for:
 This architecture is built for games which require user input for the next thing to happen, I don't think something like this would be a good fit for Flappy Royale for example (~100 birds realtime flapping through pipes concurrently ) where a runloop with scoped state is probably a better fit.  
  
 Related: You can see an example of how I use a text renderer for game state in [[tests/inline-snapshots]].
+
+### Yeah, but why Redux?
+
+I didn't just create this architecture ahead of time by cleverly analyzing what I needed and got it right, it took writing two games where they both kept heading in this direction till eventually I started formalizing and backported the architecture to the projects.
+
+I've wrote quite a lot of React-ish code, and see a lot of value in the explicit narrowing of state changes through as tight a function as possible.  
+
+The first game had an explicit "setState" function on the Phaser Scene class which handled both state updates and ui updates. This was mixed with a multi-cast delegate pattern which allowed for many subscribers to know that the state had changed. I used this to allow for things like analytics, host callbacks and dev tooling.
+
+This pattern worked pretty well though it started to hit rocks when the number of responsibilities started to grow in that `setState` function, trying to keep it readable and focused meant moving a lot of useful internals out into sub-functions which often meant breaking the OOP contracts in the function.
+
+So I knew that a home-grown state mangement system was doable, but maybe I should formalize. I spent a day auditing the state of different state management systems by making quick apps and trying to deep dive in to their docs. MobX, Vuex, Redux, Recoil and Jotai.
+
+In part, it was made much easier because a few of these are strongly tied to a UI library to the point where they can't be used without it ( Recoil, Vuex and Jotai ) which really only left MobX vs Redux. I have a bit of an aversion to reactive programming after building a non-trivial iOS app in RX, but I was open to at least seeing what was going on.
+
+After trying both, I concluded that there's a lot of MobX's value which I would not use. I expected to mostly have a pretty small state object, but I could see that from the current architecture I could drop the UIActions abstraction in favour of having a renderer listen to changes in the state tree.
+
+What  went against MobX was the feeling that introducing reactive programming in one aspect of an app has a tendency to leak into all parts eventually, and I'm wary of that.
+
+Redux won me over by being very small and extremely well documented. The core dependency was enough to get started but very quickly I realized I was re-creating the [Redux Toolkit](https://redux.js.org/redux-toolkit/overview) and I should just lift my abstraction to that. Things I like:
+
+- These sections of the docs: ["Thinking in Redux"](https://redux.js.org/redux-toolkit/overview), ["Redux Essentials"](https://redux.js.org/tutorials/essentials/part-1-overview-concepts), ["Style Guide"](https://redux.js.org/style-guide/style-guide)
+- The TypeScript support after switching to Redux Toolkit was very tight
+- Redux Toolkit uses immer to force immutablility
+- Redux Devtools is way better than my version
+- Massive community, got answers in Discord almost instantly
+
+Like all tools, you can get very complicated with your usage of Redux - but that's usually the cost of doing complex things. I think in these games I'm getting enough value to pay for it's abstraction costs and raw additions in kb. Aside from a deterministic random number generator, this is the only dependency I use outside of the renderer Phaser/svg.js.
