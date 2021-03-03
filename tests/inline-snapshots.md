@@ -284,4 +284,8 @@ describe(commitSelection.name, () => {
 })
 ```
 
+### Snapshots as Story
+
+These tests tell the story of how a system changes in a way that would be hard to describe as a series of individual, isolated tests. The use of inline snapshots just automates the process involved in creating and updating those tests with time.  
+
 The inline snapshots are used to help give you a much better idea of the before/after from the test. 

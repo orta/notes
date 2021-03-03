@@ -1,16 +1,14 @@
-### Phaser JS + Redux
+# An architecture for Phaser JS + Redux
 
 I've built a few games now with Phaser, and I think I've found a generally good mental groove for writing easily tested TypeScript games. In rough, user inputs trigger redux actions, which updates state, and optionally  triggering UI Updates from the game renderer.
 
 ## Goals
 
-Oddly enough, for some of the games I'm making I want to avoid tying _too closely_ to the game engine. There's a non-zero possibility that it will need to render the same game but in more than just a canvas ( e.g. a static svg) and so I want to keep as much logic in 'plain old JS' - this disconnect of 'game' from 'renderer' is not a foreign concept (openGL vs DirectX comes to mind) but this introduces a really important [seam](https://duckduckgo.com/?q=working+effectively+with+legacy+code) for testing.
-
-You can see an example of how I use a text renderer for game state in [[tests/inline-snapshots]].
+Oddly enough, for some of the games I'm making I want to avoid tying _too closely_ to the game engine. There's a non-zero possibility that it will need to render the same game but in more than just a canvas ( e.g. a static svg) and so I want to keep as much logic in 'plain old JS' - this disconnect of 'game' from 'renderer' is not a foreign concept (games working with openGL vs DirectX comes to mind) but this introduces a really important [seam](https://duckduckgo.com/?q=working+effectively+with+legacy+code) for composition and testing.
 
 ## Terminology
 
-- **Game Props** - The parts of the game that if you closed the app, and re-opened you would expect to be set up. This ranges from game config (original version of the board, colour scheme, game mode, tiles)
+- **Game Props** - The parts of the game's level setup which are constant. This ranges from game config (original version of the board, colour scheme, game mode settings etc)
 
 - **Game State** - The parts of the game which change (moves made, words found, tiles removed, user selection states)
 
@@ -42,7 +40,7 @@ interface GameProps {
 }
 ```
 
-Then, because we know as you go through the game finding words and selecting letters, we'll need some sort of way to describe the changes from the original baseline:
+Then, because we know as you go through the game finding words and selecting letters, we'll need some sort of way to describe the changes from the original baseline, where here I moved the first column down by one:
 
 ![pic of the game Typeshift with words found](/notes/assets/img/typeshift-2.png)
 
@@ -59,7 +57,7 @@ interface GameState {
 
     // More on this later
     uiUpdates: UIUpdate[]
-}
+} & GameProps
 ```
 
 So, to start up the game we'd need a way to grab or generate the props and state. Then this can be put into the [Redux store](https://redux.js.org/api/store). Once the store is ready, then you can create a renderer.
@@ -102,7 +100,7 @@ import { setupMouseInput } from "./input/mouseInput"
 
 import { Column } from "./objects/Column"
 
-import { moveCursor } from "./updates/moveCursorUpdate"
+import { columnsUpdated } from "./updates/columnsUpdated"
 import { resetSelection, selectionUpdated } from "./updates/selectionUpdate"
 import { commitSelectionUpdated } from "./updates/commitSelectionUpdate"
 
@@ -111,7 +109,7 @@ type GameState = {
 }
 
 export let TypeshiftScene = class TypeshiftSceneClass extends extends Phaser.Scene {
-  state: GameState
+  state: GameState & GameProps
   columns: Column[]
 
   create() {
@@ -145,7 +143,7 @@ export let TypeshiftScene = class TypeshiftSceneClass extends extends Phaser.Sce
 
 // A set of UI actions which handles the UI for state changes in Phaser
 const updates: Record<PossibleUIChanges, (game: TypeshiftSceneGame, state: GameState, action: any) => Promise<void | unknown>> = {
-  move_cursor: moveCursor,
+  columns_updated: columnsUpdated,
   selection_changed: selectionUpdated,
   commit_selection: commitSelectionUpdated,
 }
@@ -153,7 +151,10 @@ const updates: Record<PossibleUIChanges, (game: TypeshiftSceneGame, state: GameS
 export type TypeshiftSceneGame = InstanceType<typeof TypeshiftScene>
 ```
 
-So, from that original diagram, we're now at the "waiting for input phase". The game doesn't do anything at this point unless the user specifically does something. Let's look at `registerKeyboardInput` as that is the simplest input function. It uses the Phaser API for keyboards to listen to browser events and then will convert those into actions in the Redux store.
+
+### Waiting for Input
+
+So, from that original diagram, we're now at the "waiting for input phase". The game doesn't do anything at this point unless the user specifically does something. Let's look at `registerKeyboardInput` as that is the simplest input function. This function uses the Phaser API for keyboard input to listen to browser events and then will convert those into actions in the Redux store.
 
 
 ```ts
@@ -189,6 +190,103 @@ export const registerKeyboardInput = (game: TypeshiftSceneGame) => {
 }
 ```
 
-Lets follow what happens when `up` is called
+### Update State
 
-## --- to be continued ---
+Lets follow what happens when `up` is called, first to give you a sense of how the actions connect to the store, `up` is created in the same place as the Redux store. 
+
+```ts
+import { configureStore, createAction, createReducer } from "@reduxjs/toolkit"
+import { moveColumns } from "./src/actions/moveColumns"
+
+export const up = createAction("UP")
+
+export const createGameStore = (initialState: GameState) => {
+  const reducer = createReducer<SpellTowerState>(initialState, {
+    [up.type]: state => moveColumns(state, up.type),
+    // Lots more here ...
+  })
+
+  return configureStore({ reducer })
+}
+```
+
+This setup means that when an this code is called:
+
+```ts
+store.dispatch(up())
+```
+
+It is the responsibility of `moveColumns` to edit the app's state, and to let the renderer know what sort of changes it should make to the UI:
+
+```ts
+export const moveColumns = (state: GameState, dir: Direction) => {
+    // Select the first one if there's no selection
+  if (!state.selectedColumn) {
+    state.selected = 0
+  }
+ 
+  const i = state.selected
+  if (dir === "UP") {
+    // Can't move further up  
+    if (state.columnTileOffset[i] === state.columns[i].characters.length - 1) return
+    // Bump the offset by one
+    state.columnTileOffset[i]++
+  }
+
+  state.ui.push({ type: "columns_updated" })
+  
+  const found = checkForWordFound(state)
+  if (found) {
+    state.ui.push({ type: "word_found" })
+  }
+}
+```
+
+When this function is finished, the store of the app is updated with the new state and any parts of the app which are set to listen to the store (our `TypeshiftSceneClass` did this via `this.state.store.subscribe`) will start their update cycle.
+
+### UIUpdates
+
+Now, in a React codebase we have the virtual DOM and the React reconciler. The reconciler's job is to look at the current state of the DOM and the virtual DOM and handle the transformation from _where it was_ to _where it should be_. I _could_ try build a Phaser VDOM reconciler (it has [been explored](https://github.com/evilfer/react-phaser)) but the UIUpdates is an acceptable hack to work around not having that tool.
+
+So roughly, the UIUpdates is a way to scope "changes" to the Phaser DOM (Objects, Sprites, Text, Tiles etc) and handle all the state changes relating to a certain scope.
+
+```ts
+export const columnsUpdated = async (game: TypeshiftSceneGame, state: GameState, action: ColumnsUpdate) => {
+  game.columns.forEach((col, i) => {
+    const midY = game.scale.gameSize.height / 2
+    const selectedTileIndex = state.columnOffsets[i]
+    const selectionOffset = selectedTileIndex * sizes.tileSize + selectedTileIndex * sizes.tileMargin
+    const newY = midY - selectionOffset - sizes.tileSize
+
+    if (col.y !== newY) setYAnimated(game, animate, col, newY)
+  })
+}
+```
+
+In this case, the responsibility for this function is to dive into the `game`'s 'internals' aka the exposed Phaser DOM on the class of the `TypeshiftSceneGame` and set the Y position of the columns according to the (now updated) state.
+
+### Flow
+
+So, let's try go over this one more time in short:
+
+- Get props (unchanging per level) and state (things which change over time)
+- We start up a redux store with both the props and state
+- Create a renderer (phaser) which listens to changes in the store
+- Set up the renderer based on the new state
+- The renderer is responsible for setting up user-input
+- User input _eventually_ triggers a redux action to update the game's state
+- The game state is updated inside the redux store via action functions
+- If any of these state changes requires a UI change, then the state includes a list of UI updates
+- Run any UI updates which make renderer changes
+
+This might feel pretty abstract for small-ish games, but it allows for:
+
+- It avoids a _massive_ single Phaser Scene where state changes occurs from many places
+- Many possible renderers sharing most of the code
+- Many seams for writing tests without relying on very high level integration tests
+- A pretty obvious structure for where for most code in a game can live
+- Re-using existing redux tooling
+
+This architecture is built for games which require user input for the next thing to happen, I don't think something like this would be a good fit for Flappy Royale for example (~100 birds realtime flapping through pipes concurrently ) where a runloop with scoped state is probably a better fit.  
+ 
+Related: You can see an example of how I use a text renderer for game state in [[tests/inline-snapshots]].
