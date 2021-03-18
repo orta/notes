@@ -6,5 +6,8 @@
   "scripts": {
     "start": "yarn workspace site start",
     "build": "yarn workspace site build"
+  },
+  "devDependencies": {
+    "danger": "^10.6.3"
   }
 }
