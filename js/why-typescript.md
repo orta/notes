@@ -6,7 +6,7 @@ TypeScript's growth is roughly that the number of downloads [doubles every year]
 
 ## How we got here
 
-For the first few years, TypeScript shipped a new release every 2 months. Now it's a bit calmer, there's roughly a month of feature work with a beta, then about 2 months of beta testing and bug fixing. This keeps releases pretty stable and solid. 
+From 2.0 onwards, TypeScript shipped a new release every 2 months. Now it's a bit calmer, there's roughly a month of feature work with a beta, then about 2 months of beta testing and bug fixing. This keeps releases pretty stable and solid. 
 
 ### Major Events Timeline
 
