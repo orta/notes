@@ -14,7 +14,7 @@ IMO, these are the big events which enabled TypeScript to keep breaking possible
 
 - **2014 - TypeScript re-write, TS v1.1** - Post-launch and with an understanding of what TypeScript is, the entire codebase was mostly thrown away and re-written in a functional style (instead of classes with mutation) - this architecture still stands today, and is built with long-running processes and _very rare_ mutations in mind. Someone once mentioned that the _precursor_ to TypeScript (Strada) was written in C++, not certain on that through.
 
-- **2015 - Angular adopts TypeScript, TS v1.5.** - Google were looking at building their own language for Angular, instead opting for using TypeScript. To make this possible, TypeScript broke one of its cardinal rules: Do not implement a TC39 thing  early. Thus `experimentalDecorators` support in TypeScript. This technical debt was _totally_ worth it for everyone involved, even if a 6 years down the line decorators have not been added to JavaScipt. 
+- **2015 - Angular adopts TypeScript, TS v1.5.** - Google were looking at building their own language for Angular, instead opting for using TypeScript. To make this possible, TypeScript broke one of its cardinal rules: Do not implement a TC39 thing  early. Thus `experimentalDecorators` support in TypeScript. This technical debt was _totally_ worth it for everyone involved, even if a 6 years down the line decorators have not been added to JavaScript. 
 
 - **2015 - JSX support in TypeScript, TS v1.6.** - React was also growing to be an extremely popular user interface libraries, and React uses JSX: a JS language extension which effectively supports writing HTML inside JavaScript. TypeScript's support for JSX _allowed_ others to add support for React (support for React lives in @types/react, not inside TypeScript) 
 
@@ -63,7 +63,7 @@ The idea would be to carve out a set of syntax which type-systems like TypeScrip
 const a: string = "1234"
 
 // Would look like this
-const a/*: string */= "1234"
+const a/*: string */ = "1234"
 
 // To the JS engine
 ```
@@ -72,6 +72,7 @@ The JS engine would know that a colon after an identifier `: string` is the star
 
 However, the advantages of having TypeScript 'natively' running in JavaScript would reduce the tooling barrier to using TypeScript effectively nothing. IMO that'd be worth it.
 
+The key example of this is Deno, which emulates what native TypeScript support would look lik in a JavaScript engine.
 
 ### Current Competitors
 
@@ -79,18 +80,20 @@ However, the advantages of having TypeScript 'natively' running in JavaScript wo
 
   As the TypeScript team, I'm not necessarily sure we see WebStorm as a competitor (the Visual Studio teams likely do though) as we'd treat the WebStorm team like other external IDE teams.  
 
-- **WASM** - The argument is that everything will turn to wasm, and maybe TypeScript should be able to create WASM instead of JavaScript. The general argument against it is that TypeScript embraces the warts of JavaScript, and if you have a JavaScript runtime to put WASM in you'll nearly always prefer that anyway. That said, [AssemblyScript](https://github.com/AssemblyScript/assemblyscript) is some great work in that space. 
+- **Compile to JS languages** - Current examples are **Elm**, **ReScript**, **KotlinScript** which are languages whose core goal is to interact with JavaScript. For TypeScript these are interesting languages and they get to have clean-room implementations of a type system - aka, no JS baggage. As competitors, they tend to be more niche because they _aren't_ JavaScript at its core and the community was burned with migrations to-from CoffeeScript. 
+
+- **WASM** - The argument is that everything will turn to wasm, and maybe TypeScript should be able to create WASM instead of JavaScript. The general argument against it is that TypeScript embraces the warts of JavaScript, and if you have a JavaScript runtime to put WASM in you'll nearly always prefer that anyway. That said, [AssemblyScript](https://github.com/AssemblyScript/assemblyscript) is doing some great work in that space. Maybe it's better to think of WASM like we do JSON, it's another tool work with in making your project. 
 
 - **Compile to WASM langs**: E.g. Rust, Go, Swift etc. These are languages could occupy a space where TypeScript currently sits in terms of the core building blocks for the web. Who knows where that goes. These languages can offer all sorts of different language primitives and have been built from scratch with different goals. If WASM and [WASI](https://github.com/WebAssembly/WASI#webassembly-system-interface) end up taking off, then I think it'll be about the platforms and it'll be interesting to see where that goes. At the heart though, it won't be _TypeScript_ competing, it will be JavaScript.
 
 
 ### How TypeScript see its position in the Ecosystem
 
-TypeScript want's to be innovating in the type-system and editor tooling space. 
+TypeScript want's to be innovating in the type-system and editor tooling space. We have one of the most expressive type systems in a mainstream programming language.
 
-When TypeScript was first created, the process for getting changes into JavaScript was _very_ different to today, and so there are a few features in TypeScript which realistically are the domain of TC39 but still around for backwards compatability. These features may end up in JavaScript many years, and many iterations down the line in a way that means TypeScript has to maintain two separate versions of a particular language feature.
+When TypeScript was first created, the process for getting changes into JavaScript was _very_ different to today, and so there are a few features in TypeScript which realistically are the domain of TC39 but still around for backwards compatibility. These features may end up in JavaScript many years, and many iterations down the line in a way that means TypeScript has to maintain two separate versions of a particular language feature.
 
-So the aim is to be a good member of the TC39 language commitee for JavaScript, to give feedback on what editor support may look and feel like for language feaatures and to champion features which TypeScript users want to see. By collaborating this way, TC39 is in control of JavaScript, and TypeScript supports them.
+So the aim is to be a good member of the TC39 language committee for JavaScript, to give feedback on what editor support may look and feel like for language features and to champion features which TypeScript users want to see. By collaborating this way, TC39 is in control of JavaScript, and TypeScript supports them.
 
 ### How does TypeScript think of in terms of its audience??
 
