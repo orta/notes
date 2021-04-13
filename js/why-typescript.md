@@ -35,11 +35,11 @@ IMO, these are the big events which enabled TypeScript to keep breaking possible
 - **2020 - Docs re-write** - This is _my_ work so take it with some salt, but documentation around TypeScript had been pretty weak over the years. I worked with many long-term compiler authors to re-fresh all user-facing docs, and made a playground which helps users understand TypeScript. It's the first point of call for questions on the language and great docs frees up the compiler team to focus on the compiler. 
 
 
-### What are TypeScript's Competitors?
+### What were TypeScript's Competitors?
 
 The goal is to provide tooling for JavaScript projects that allow people to write very large codebases and feel confident in changes. JavaScript on it's own does not have enough syntax to _reliably_ know what every identifier could be without _running_ that JavaScript and introspecting the types at runtime. To fix this, TypeScript adds additional syntax.
 
-So if the goal is tooling, then these are a few competitors in that space which TypeScript doesn't really compete with anyomore:
+So, if the goal is tooling, then these are a few competitors in that space which TypeScript doesn't really compete with anymore:
 
 - **ESlint and TSLint**: Both are made to highlight possible errors in your code, in the same way that TypeScript does. They just don't add additional syntax in order to give hints to the checking process. Neither aim to run as a tool for IDE integration, and often both TS and TS/ESLint can say "that's the domain of the other" on features which don't make sense to that project.  In modern code, TS/ESLint allow TypeScript to have less checks which aren't globally appropriate to all codebases. While there's some overlap, it's better to think about them as complementary projects.  
 
