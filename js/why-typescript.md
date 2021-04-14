@@ -26,13 +26,15 @@ IMO, these are the big events which enabled TypeScript to keep breaking possible
 
 - **2018 - TypeScript support in Babel, Babel 7** - The start of the end for codebases living in an entirely TypeScript universe. This added [constraints](https://www.typescriptlang.org/tsconfig#isolatedModules) to TypeScript but they are worth it. After this, TypeScript support was a "check box" for JavaScript projects and not a "move from eslint to tslint"  where two separate ecosystems had to exist.
 
-- **2018 - Composite Projects, TS 3.0** - There are many ways to handle massive source code repos, composite projects aer how TypeScript handles it. You can have a single codebase, but with many TypeScript sub-projects inside it which use .d.ts files as the project boundries. This saves time and memory, and most importantly allows you to scale to very big codebases.
+- **2018 - Composite Projects, TS 3.0** - There are many ways to handle massive source code repos, composite projects are how TypeScript handles it. You can have a single codebase, but with many TypeScript sub-projects inside it which use .d.ts files as the project boundaries. This saves time and memory, and most importantly allows you to scale to very big codebases.
 
 - **2019 - Optional Chaining, TS 3.7** - There have been bigger language features omitted from this list, but optional chaining for TypeScript was a perfect mix of working on a high profile _JavaScript_ feature with TC39 which made people _extremely excited_ about TypeScript support. The process for getting optional chains into JavaScript was a prefect example of the type of positioning TypeScript wanted to be,  as a good participant in the JS ecosystem and tooling which made that feature really shine. TypeScript should do more of these sorts of projects.
 
 - **2020 - esbuild / swc / sucrase** - New transpilers and JavaScript runtimes support TypeScript syntax from version 1, and anything which builds on these tools gets TypeScript support out of the box. This continues to legitimize the additional TypeScript syntax as a built-in extension to JavaScript which is turned on in a .ts file.  
 
 - **2020 - Docs re-write** - This is _my_ work so take it with some salt, but documentation around TypeScript had been pretty weak over the years. I worked with many long-term compiler authors to re-fresh all user-facing docs, and made a playground which helps users understand TypeScript. It's the first point of call for questions on the language and great docs frees up the compiler team to focus on the compiler. 
+
+My take: TypeScript got popular because it focused on constantly removing barriers to entry via tooling (DT/--isolatedModules/JSDoc), cooperating with others (Babel/TC39) and by offering incremental ways to show the tooling and safety value of a type-system in JavaScript. Someone writing JSDoc for tooling is effectively a TypeScript user today, just as much as someone using TypeScript with `--strict`.
 
 
 ### What were TypeScript's Competitors?
@@ -72,7 +74,7 @@ The JS engine would know that a colon after an identifier `: string` is the star
 
 However, the advantages of having TypeScript 'natively' running in JavaScript would reduce the tooling barrier to using TypeScript effectively nothing. IMO that'd be worth it.
 
-The key example of this is Deno, which emulates what native TypeScript support would look lik in a JavaScript engine.
+The key example of removing all barriers to TS is Deno, which emulates what native TypeScript support would look like in a JavaScript engine today.
 
 ### Current Competitors
 
@@ -89,7 +91,7 @@ The key example of this is Deno, which emulates what native TypeScript support w
 
 ### How TypeScript see its position in the Ecosystem
 
-TypeScript want's to be innovating in the type-system and editor tooling space. We have one of the most expressive type systems in a mainstream programming language.
+TypeScript wants to be innovating in the type-system and editor tooling space. We have one of the most expressive type systems in a mainstream programming language.
 
 When TypeScript was first created, the process for getting changes into JavaScript was _very_ different to today, and so there are a few features in TypeScript which realistically are the domain of TC39 but still around for backwards compatibility. These features may end up in JavaScript many years, and many iterations down the line in a way that means TypeScript has to maintain two separate versions of a particular language feature.
 
