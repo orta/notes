@@ -51,7 +51,7 @@ So, if the goal is tooling, then these are a few competitors in that space which
 
     So, why did most OSS Flow codebases end up converting to TypeScript? IMO, a large amount of the reasoning is that the teams have different focuses. Flow is built for maintaining the Facebook codebase vs TypeScript which is built as a stand-alone language. Examples of how this difference is expressed comes from something like DefinitelyTyped vs flow-typed. The TypeScript team have a compiler engineer on rotation for DefinitelyTyped support building out tools and helping manage the community. For flow-typed it's almost exclusively ran by the community. DT is bigger _now_ because of that constant work which would have been _really_ hard to get funded for the Flow team. 
 
-    TypeScript had the ability and freedom to focus on the ecosystem as an entity and not soley on one single codebase. That gave the team the ability to work with many others and  constantly release things the community wanted. It reminds me of a blog post I wrote on Relay, see the [community section](https://artsy.github.io/blog/2019/04/10/omakase-relay/#Community) and replace "Relay" with "Flow", and "Apollo" with "TypeScript".
+    TypeScript had the ability and freedom to focus on dev tooling and the ecosystem as an entity and not solely on one single codebase. That gave the team the ability to work with many others and constantly release things _the community_ wanted. It reminds me of a blog post I wrote on Relay, see the [community section](https://artsy.github.io/blog/2019/04/10/omakase-relay/#Community) and replace "Relay" with "Flow", and "Apollo" with "TypeScript".
 
 ## Future
 
