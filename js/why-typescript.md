@@ -55,6 +55,7 @@ So, if the goal is tooling, then these are a few competitors in that space which
 
     2. How something like DefinitelyTyped vs flow-typed operate. The TypeScript team have a compiler engineer on rotation for DefinitelyTyped support building out tools and helping manage the community. For flow-typed it's almost exclusively ran by the community. DT is bigger _now_ because of that constant work on non-Facebook code which would have been _really_ hard to get funded by the Flow team.
 
+
     TypeScript's independence within Microsoft gave it the ability and freedom to focus on dev tooling, and the ecosystem as an whole and not solely on one _very hard_ problem. That gave the TypeScript team the ability to work with many others and constantly release things _the community_ wanted. Then over time, I imagine it got harder and harder for the Flow team to get time allocated for community work as their external adoption slowed. Which kinda ends up as a feedback loop. This makes Flow less of a direct "competitor" today, in comparison to ~2-3 years ago and more of an interesting perspective on how to address similar problems from different angles with different constraints.
 
 ## Future
