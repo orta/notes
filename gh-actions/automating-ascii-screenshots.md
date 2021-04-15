@@ -2,7 +2,7 @@
 
 I don't want to be recording stuff like the text output of a command on my own computer, CI should be the one doing derived work. So, I put together a bunch tools on GitHub Actions to record a CLI experience and generate a GIF of the terminal usage. 
 
-This uses the techniques of https://asciinema.org - but doesn't use their web service, everything happens on CI.
+This uses the techniques of https://asciinema.org - but doesn't use their web service, everything happens on CI. Note that you can use `GIFSICLE_OPTS`
 
 ```yml
 name: ci
@@ -53,6 +53,8 @@ jobs:
         theme: tango
         speed: 0.5
         scale: 0.8
+      env:
+        GIFSICLE_OPTS: --no-loopcount -k 64 -O2 -Okeep-empty
 
     # Now the GIF has been written, commit the GIF and push it to the repo
     - name: Run
