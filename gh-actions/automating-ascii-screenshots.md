@@ -55,6 +55,8 @@ jobs:
         scale: 0.8
       env:
         GIFSICLE_OPTS: --no-loopcount -k 64 -O2 -Okeep-empty
+        WIDTH: 120
+        HEIGHT: 100
 
     # Now the GIF has been written, commit the GIF and push it to the repo
     - name: Run
@@ -70,3 +72,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
 ```
+
+This creates:
+
+<img src ="https://github.com/orta/tsc-cli-example/raw/master/screencast.gif" />

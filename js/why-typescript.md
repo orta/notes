@@ -74,11 +74,9 @@ const a/*: string */ = "1234"
 // To the JS engine
 ```
 
-The JS engine would know that a colon after an identifier `: string` is the start of a type comment which ends at an `=` in this case. How that could actually work is complex, and would take time to figure out. However, a space like that in JavaScript would constrain TypeScript in the same way Babel support did - probably much more so. 
+The JS engine would know that a colon after an identifier `: string` is the start of a type comment which ends at an `=` in this case. How that could actually work is complex, and would take time to figure out.However, the advantages of having TypeScript 'natively' running in JavaScript would reduce the tooling barrier to effectively nothing. It would put some constraints on TypeScript in the same way Babel support did. IMO that'd be worth it. 
 
-However, the advantages of having TypeScript 'natively' running in JavaScript would reduce the tooling barrier to using TypeScript effectively nothing. IMO that'd be worth it.
-
-The key example of removing all barriers to TS is Deno, which emulates what native TypeScript support would look like in a JavaScript engine today.
+The key example of removing all barriers to TS is [Deno](https://deno.land), which emulates what native TypeScript support would look like in a JavaScript engine today by running though a very fast rust TS -> JS tool [swc](https://swc.rs). 
 
 ### Current Competitors
 
@@ -88,7 +86,7 @@ The key example of removing all barriers to TS is Deno, which emulates what nati
 
 - **Compile to JS languages** - Current examples are **Elm**, **ReScript**, **KotlinScript** which are languages whose core goal is to interact with JavaScript. For TypeScript these are interesting languages and they get to have clean-room implementations of a type system - aka, no JS baggage. As competitors, they tend to be more niche because they _aren't_ JavaScript at its core and the community was burned with migrations to-from CoffeeScript. 
 
-- **WASM** - The argument is that everything will turn to wasm, and maybe TypeScript should be able to create WASM instead of JavaScript. The general argument against it is that TypeScript embraces the warts of JavaScript, and if you have a JavaScript runtime to put WASM in you'll nearly always prefer that anyway. That said, [AssemblyScript](https://github.com/AssemblyScript/assemblyscript) is doing some great work in that space. Maybe it's better to think of WASM like we do JSON, it's another tool work with in making your project and unlikely to be a competitor to JavaScript unless something changes with how WASM and the DOM can interoperate. 
+- **WASM** - An argument I hear for WASM as a competitor is that WASM could replace JS as the language used to manipulate a browsers DOM. The general argument against that point is that WASM doesn't have DOM bindings, and might never. TypeScript embraces the warts of JavaScript, and if you have a JavaScript runtime to put WASM in, you'll nearly always prefer that anyway. That said, [AssemblyScript](https://github.com/AssemblyScript/assemblyscript) is doing some great work in that space. Maybe it's better to think of WASM like we do JSON, it's another tool work with in making your project and unlikely to be a competitor to JavaScript unless something changes with how WASM and the DOM can interoperate. 
 
 - **Compile to WASM langs**: E.g. Rust, Go, Swift etc. These are languages could occupy a space where TypeScript currently sits in terms of the core building blocks for the tools and the web. Who knows where that goes. These languages can offer all sorts of different language primitives and have been built from scratch with different goals. If WASM and [WASI](https://github.com/WebAssembly/WASI#webassembly-system-interface) end up taking off, then I think it'll be about the platforms (think function apps etc) and it'll be interesting to see where that goes. At the heart though, it won't be _TypeScript_ competing, it will be JavaScript.
 
