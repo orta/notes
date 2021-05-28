@@ -1,6 +1,6 @@
 # Understanding TypeScript's Popularity
 
-TypeScript is an overwhelmingly popular extension to the JavaScript programming language, which focuses on adding a type layer on top of existing JavaScript syntax which can be erased without runtime changes to the original JavaScript. People percieve TypeScript as "just the compiler", but it's a better mental model to think of TypeScript as two separate entities: The compiler (aka syntax) and language tools (aka editor integration) - by treating these two systems as separate you have two important perspectives to understand decisions get made. 
+TypeScript is an overwhelmingly popular extension to the JavaScript programming language, which focuses on adding a type layer on top of existing JavaScript syntax which can be erased without runtime changes to the original JavaScript. People think of TypeScript as "just the compiler", but it's a better mental model to think of TypeScript as two separate entities: The compiler (aka syntax you write and type checking) and language tools (aka editor integration) - by treating these two systems as separate you have two important perspectives to understand how the team thinks about TypeScript. 
 
 TypeScript's growth is roughly that the number of downloads [doubles every year](https://www.npmtrends.com/typescript) on npm. Today it's about 20 million downloads a week. Last April it was about 10 million. That growth is consistent, and doesn't seem to be showing any slowing down.
 
@@ -45,9 +45,9 @@ So, if the goal is tooling, then these are a few competitors in that space which
 
 - **ESlint and TSLint**: Both are made to highlight possible errors in your code, in the same way that TypeScript does. They just don't add additional syntax in order to give hints to the checking process. Neither aim to run as a tool for IDE integration, and often both TS and TS/ESLint can say "that's the domain of the other" on features which don't make sense to that project.  In modern code, TS/ESLint allow TypeScript to have less checks which aren't globally appropriate to all codebases. While there's some overlap, it's better to think about them as complementary projects.  
 
-- **Coffescript**: Hey, TypeScript is came out [in 2012](https://www.zdnet.com/article/who-built-microsoft-typescript-and-why/)! CoffeeScript vs TypeScript differ in that CoffeeScript wanted to _improve_ the JavaScript language, e.g. adding features to JavaScript. This meant learning the difference between CoffeeScript and the output JavaScript. Over time, the best ideas from CoffeeScript made it into JavaScript and people felt burned by an 'almost JavaScript'. 
+- **Coffescript**: Hey, TypeScript came out [in 2012](https://www.zdnet.com/article/who-built-microsoft-typescript-and-why/)! CoffeeScript vs TypeScript differ in that CoffeeScript wanted to _improve_ the JavaScript language, e.g. adding features to JavaScript. This meant learning the difference between CoffeeScript and the output JavaScript. Over time, the best ideas from CoffeeScript made it into JavaScript and people felt burned by an 'almost JavaScript'. 
 
-- **Flow**: Facebook's JavaScript type-checker and IDE tooling language. Flow, like TypeScript, adds additional syntax support to JavaScript to let you have a richer type-system which is erased by a transpile step. When I started doing JavaScript, Flow was what I started with first because it had a better pitch of being 'closer' to standard JavaScript. Flow is a great type system, and the type-systen has different goals to TypeScript. Any invisible type-layer system has to constantly make decisions about 'being correct' or 'feeling correct enough' - Flow aims for 'being correct', while TypeScript aims for 'feeling correct in a lot of cases'. Pick two: `Correct` / `Developer Experience` / `Perfect JavaScript Interop`.
+- **Flow**: Facebook's JavaScript type-checker and IDE tooling language. Flow, like TypeScript, adds additional syntax support to JavaScript to let you have a richer type-system which is erased by a transpile step. When I started doing JavaScript, Flow was what I started with first because it had a better pitch of being 'closer' to standard JavaScript. Flow is a great type system, and the type-system has different goals to TypeScript. Any invisible type-layer system has to constantly make decisions about 'being correct' or 'feeling correct enough' - Flow aims for 'being correct', while TypeScript aims for 'feeling correct in a lot of cases'. Pick two: `Correct` / `Developer Experience` / `Perfect JavaScript Interop`.
 
   So, why did most OSS Flow codebases end up converting to TypeScript? IMO, a large amount of the reasoning is that the teams have different focuses. Flow is built for maintaining the Facebook codebase vs TypeScript which is built as a stand-alone language. Here's two ways that shows: 
     
@@ -57,11 +57,13 @@ So, if the goal is tooling, then these are a few competitors in that space which
 
   TypeScript's independence within Microsoft gave it the freedom to focus on dev tooling, and the ecosystem as an whole and not solely on one _very hard_ problem. That gave the TypeScript team the ability to work with many others and constantly release things _the community_ wanted. Then over time, I imagine it got harder and harder for the Flow team to get time allocated for community work as their external adoption slowed. Which kinda ends up as a feedback loop. This makes Flow less of a direct "competitor" today, in comparison to ~2-3 years ago and more of an interesting perspective on how to address similar problems from different angles with different constraints.
 
+  **Update** Flow recently [updated their public stance](https://medium.com/flow-type/clarity-on-flows-direction-and-open-source-engagement-e721a4eb4d8b) on how they interact with the public which matches the above.
+
 ## Future
 
 ### Guestimates at the future of TypeScript?
 
-The biggest blocker to TypeScript's adoption now is that it requires build-tools. I don't think it's likely that type syntax would get added to JavaScript, but there's a very reasonable chance of "types as comments" in JavaScript the langauge. 
+The biggest blocker to TypeScript's adoption now is that it requires build-tools. I don't think it's likely that type syntax would get added to JavaScript, but there's a very reasonable chance of "types as comments" in JavaScript the language. 
 
 The idea would be to carve out a set of syntax which type-systems like TypeScript can use, but does not define what happens in there to JS runtimes.
 
