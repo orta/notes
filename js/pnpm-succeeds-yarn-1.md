@@ -16,7 +16,7 @@ Yarn's [pitch](https://www.infoq.com/news/2016/10/yarn/) out of [the door in 201
 I'm throwing around a lot of terms there, so roughly there are three main responsibilities which exist in the domain of 'bootstrapping and sharing code for an app':
 
 - "Package Manager" -> Takes packages from the internet and downloads them (usually into a global store)
-- "Dependency Manager" -> Uses those packages, resolves the requirements into a dependency tree specific to an application
+- "Dependency Manager" -> Uses those packages, resolves the app's dependency requirements into a dependency tree and bundles them locally
 - "Project/Build Management" -> Handling application bootstrapping, tooling, test running, debugging etc
 
 I thought it wasn't CocoaPods' responsibility to handle the being a good project manager, giving the tool more focus on just getting your libraries code in order and passing that responsibility to Apple. This is non-trivial work on its own, then the scope of potential responsibilities for being a good project manager is massive. (That's not even covering the fact that the entire ecosystem shifts ever June when Apple release a year's worth of work to the public overnight. )
