@@ -3,7 +3,10 @@ published: 2021-02-24T22:12:03.284Z
 ---
 # Yarn vs npm
 
-> "Use yarn, mostly v1, embrace workspaces"
+> ~~"Use yarn, mostly v1, embrace workspaces"~~ "Use pnpm, embrace workspaces"
+
+**Update**: Months later, and after extensive usage, I've concluded that pnpm is now the right mix of CLI experience, workspace support, and alignment with Node. New projects I've been writing in pnpm, and occasionally I migrate from yarn 1 to pnpm.
+
 
 When I clone a JS/TS repo and it's not using yarn I usually assume the repo came from someone new to the JS ecosystem. Yarn came out a few years ago and npm is still playing catch-up on features. Originally a Facebook project, but nowadays is ran by non-Facebook folks. Over time, Yarn was re-written and focused on solving different problems than I am seeing.
 
@@ -46,7 +49,7 @@ That said, I'd love to use yarn 2 everywhere because the plugin system for v2 is
 
 I've made a few repos with [pnpm](https://pnpm.js.org) to get a sense of whether pnpm could be a replacement for yarn 1 for me. There's some interesting ideas in there. I wasn't a particular fan of having workspace config in it's own yml file vs the `package.json` but that's pretty minor, ~~but it copies npm's CLI experience for running scripts/binaries instead of yarn's which is more of a blocker. So, I've started a discussion about [potentially moving](https://github.com/pnpm/pnpm/discussions/3191).~~ 
 
-pnpm now supports `pnpm tsc` - in my mind it is likely the successor to yarn 1, will test it out the fel on a more complex repo.
+pnpm now supports `pnpm tsc` - in my mind it is likely the successor to yarn 1, will test it out the feel on a more complex repo.
 
 #### Future
 
