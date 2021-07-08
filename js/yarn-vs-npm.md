@@ -5,7 +5,7 @@ published: 2021-02-24T22:12:03.284Z
 
 > ~~"Use yarn, mostly v1, embrace workspaces"~~ "Use pnpm, embrace workspaces"
 
-**Update**: Months later, and after extensive usage, I've concluded that pnpm is now the right mix of CLI experience, workspace support, and alignment with Node. New projects I've been writing in pnpm, and occasionally I migrate from yarn 1 to pnpm.
+**Update**: Months later, and after extensive usage, I've concluded that pnpm is now the right mix of CLI experience, workspace support, and alignment with Node. New projects I've been writing in pnpm, and occasionally I migrate from yarn 1 to pnpm. There's a [write-up here](https://orta.io/notes/js/pnpm-succeeds-yarn-1).
 
 
 When I clone a JS/TS repo and it's not using yarn I usually assume the repo came from someone new to the JS ecosystem. Yarn came out a few years ago and npm is still playing catch-up on features. Originally a Facebook project, but nowadays is ran by non-Facebook folks. Over time, Yarn was re-written and focused on solving different problems than I am seeing.

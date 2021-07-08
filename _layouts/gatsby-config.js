@@ -43,46 +43,6 @@ module.exports = {
             },
           });
 
-          defaultPluginMdx.options.gatsbyRemarkPlugins.push({
-            resolve: "gatsby-remark-opengraph",
-            options: {
-              background: path.join(__dirname, "src", "assets", "bg.png"),
-              outputPath: (markdownNode) => {
-                const base = path.join(__dirname, "..")
-                return path.join(
-                  "./public",
-                  markdownNode.fileAbsolutePath.replace(base, "").replace(".md", "")
-                )
-              },
-              texts: (mdNode) => {
-                const md = mdNode.internal.content;
-                const title = md.split("\n")[0].replace(/#/g, "").trim();
-                const preview = md.split("\n")[2].trim().replace(/\[(.*?)\][\[\(].*?[\]\)]/g, '$1')
-
-                const x = 290
-                return [
-                  {
-                    text: title,
-                    y: 40,
-                    x: x,
-                    maxWidth: 1200 - x,
-                    color: "#000000",
-                    font: require.resolve("./src/assets/Roboto-Bold.ttf"),
-                  },
-                  {
-                    text: preview.slice(0, 300),
-                    fontSize: 40,
-                    maxWidth: 1200 - x,
-                    font: require.resolve("./src/assets/Roboto-Regular.ttf"),
-                    y: 160,
-                    x: x,
-                    color: "#000000",
-                  },
-                ];
-              },
-            },
-          });
-
           return defaultPluginMdx;
         },
       },

@@ -1,6 +1,7 @@
 ---
 published: 2021-02-24T22:12:03.284Z
 ---
+# pnpm is my successor to Yarn 1
 
 ## The resilient flaws of `npm` as a build manager
 
