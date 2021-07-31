@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{QeBL:function(o,e,n){"use strict";n.r(e);var t=n("mXGw"),c=n.n(t);e.default=function(){return Object(t.useEffect)((function(){document.location&&document.location.href.includes("orta")&&document.location.replace("/notes/home"),document.location&&document.location.href.includes("localhost")&&document.location.replace("/home")})),c.a.createElement("html",null)}}}]);
-//# sourceMappingURL=component---src-pages-index-tsx-e213008babce7ab90ea6.js.map

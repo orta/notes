@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksite=self.webpackChunksite||[]).push([[691],{6237:function(e,t,o){o.r(t);var n=o(7378);t.default=function(){return(0,n.useEffect)((function(){document.location&&document.location.href.includes("orta")&&document.location.replace("/notes/home"),document.location&&document.location.href.includes("localhost")&&document.location.replace("/home")})),n.createElement("html",null)}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-2b208f5f792f98e9e574.js.map
