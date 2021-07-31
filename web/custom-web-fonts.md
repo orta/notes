@@ -206,7 +206,7 @@ JS only makes differences from that. You can't set the `localStorage` without JS
 theme selection. I use React here, but the code can just be DOM + JS.
 
 ```tsx twoslash
-import React, {  useState } from "react"
+import { useState } from "react"
 
 let hasLocalStorage = false
 try { hasLocalStorage = typeof localStorage !== `undefined` } catch {}
