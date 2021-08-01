@@ -281,7 +281,7 @@ This means running `SITE_ENV="true" node src/server.js` will start up a dev serv
 
 ## Moving Inline
 
-With the system working, we can look at making the iteration system a bit faster. The slowest parts by far are the two `execSync`s. Let's replace these with in-process work. The easy step, is to convert the `esbuild` call to the esbuild JavaScript API:
+With the system working, we can look at making the iterations a bit faster. The slowest parts by far are the two `execSync`s. Let's replace these with in-process work to avoid the loading of a new process, and the node/npm boot times. The easy step is to convert the `esbuild` call to the esbuild JavaScript API:
 
 ```diff
 + import { buildSync } from "esbuild";
