@@ -68,7 +68,7 @@ const build = () => {
 
   // JSX -> JS, then evaluate that output in node
   try {
-    execSync(`yarn esbuild --log-level=warning --platform=node --bundle src/build.jsx --outfile=${tmpFile}`)
+    execSync(`npm run esbuild --log-level=warning --platform=node --bundle src/build.jsx --outfile=${tmpFile}`)
     execSync(`node ${tmpFile}`)
   } catch (error) {
     console.log(error)
@@ -278,3 +278,41 @@ writeFileSync("./index.html", html)
 ```
 
 This means running `SITE_ENV="true" node src/server.js` will start up a dev server, where pressing save will render the JSX tree to HTML and reload all open web-pages. We did it with very few tools, and ideally understood how all of the pieces came together.
+
+## Moving Inline
+
+With the system working, we can look at making the iteration system a bit faster. The slowest parts by far are the two `execSync`s. Let's replace these with in-process work. The easy step, is to convert the `esbuild` call to the esbuild JavaScript API:
+
+```diff
++ import { buildSync } from "esbuild";
+
+- execSync(`npm run esbuild --log-level=warning --platform=node --bundle src/build.jsx --outfile=${tmpFile}`)
++ const result = buildSync({ logLevel: "warning", platform: "node", bundle: true, outfile: tmpFile, entryPoints: ['src/build.jsx'] })
+```
+
+That should shave a bit of time off the build process, you're mostly looking at dropping the nodejs bootup for npm and then any `npm run` overhead. Next we need to try run this code inline. Now, I mentioned earlier that we can't use a require cache to import the code, so that's not really doable - but a simpler answer does exist: `eval`.
+
+To safely eval the code we don't need much. esbuild, bundles and converts our JS to commonjs, which means we need a `require` in scope. In ESM Node, we can create our own `require` function via `createRequire(import.meta.url)` which means we can convert our entire build function to:
+
+```ts twoslash
+// @include: main
+// ---cut---
+import { buildSync } from "esbuild"
+import { createRequire } from 'module';
+
+// Convert and run the 'app' code
+const build = () => {
+  const tmpFile = join(tmpdir(), "tc39-template.js")
+
+  // JSX -> JS, then evaluate that in node
+  const result = buildSync({ logLevel: "warning", platform: "node", bundle: true, outfile: tmpFile, entryPoints: ['src/build.jsx'] })
+  if (!result.errors.length) {
+    try {
+      const require = createRequire(import.meta.url);
+      eval(readFileSync(tmpFile, "utf8"))
+    } catch (error) {
+      console.log(error) 
+    }
+  }
+}
+```
