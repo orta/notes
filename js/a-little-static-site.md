@@ -60,8 +60,13 @@ import { Server } from 'ws';
 I'm writing ESM, so I can't rely on clearing the [`require.cache`](https://bambielli.com/til/2017-04-30-node-require-cache/) to force the current process to re-evaluate changed JS inside Node. So, the hacky, but a wee bit slower method is to shell out each time:
 
 ```ts twoslash title="src/server.js"
-// @include: main
+/// <reference types="node" />
 // ---cut---
+import { execSync } from "child_process";
+import { watch, readFileSync } from "fs"
+import { tmpdir } from "os";
+import { join } from "path";
+
 // Convert and run the 'app' code
 const build = () => {
   const tmpFile = join(tmpdir(), "tc39-template.js")
@@ -79,12 +84,12 @@ const build = () => {
 Next we need to keep track of when a file changes, and trigger that function:
 
 ```ts twoslash title="src/server.js"
-/// <reference types="node" /> 
+/// <reference types="node" />
 declare function build(): void
+// ---cut---
 import { watch } from "fs"
 import { stdout } from "process";
 
-// ---cut---
 // FS watcher on the src dir which triggers a re-build, and then tells
 // any connected webpages to reload.
 watch("./src", () => {
