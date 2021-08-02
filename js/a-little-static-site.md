@@ -2,9 +2,9 @@
 
 With HTML/JS as your output, it can be very tempting to write a single web page in just a single `.html` file. HTML definitely feels like an _output_ format, you get OK tooling support in VS Code but there's very little abstractions in the language to do anything re-usable. So, nearly all of the time it pays off to add build tooling.
 
-The last single-page mini-site I built, [shiki-twoslash's homepage](https://shikijs.github.io/twoslash/), using Next.js and while that is a slick setup. It's overkill for a single page. For example, I had to post-process their output to remove a bunch of JavaScript. I wasn't using the tool for what it was made for. I've built sites big and small with Gatsby, Next.js, Jekyll, 11ty etc and they all have their place in generating static sites. 
+The last single-page mini-site I built, [shiki-twoslash's homepage](https://shikijs.github.io/twoslash/), using Next.js and while that is a slick setup. It's overkill for a single page. For example, I had to post-process their output to remove a bunch of JavaScript. I wasn't using the tool for what it was made for. I've built sites big and small with Gatsby, Next.js, Jekyll, 11ty etc and they all have their place in generating static sites, and a single page with no JS ain't it. [Astro][https://astro.build] is probably the best fit.
 
-For a project I was looking at, I needed to keep everything as vanilla as possible. So, Node, not Deno, npm not pnpm etc. Every extra dependency is a weight, and I asked myself is a the absolute minimal approach to building a static HTML page with useful tooling? I didn't want to reach for any existing SSGs because the abstraction overhead for a single page doesn't feel worth it.
+For a project I was looking at, I needed to keep everything as vanilla as possible. So, Node, not Deno, npm not pnpm etc. Every extra dependency is a weight, and I asked myself what is an the absolute minimal approach to building a static HTML page with useful tooling?
 
 ## Requirements
 
