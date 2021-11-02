@@ -2,7 +2,7 @@
 
 I use postgres pretty much everywhere and this setup has followed me across many projects and languages, it's a quick script for cloning the db to a local copy. Mostly just a wrapper around pg_dump and psql.
 
-```js
+```js twoslash
 // @strict: false
 /// <reference types="node" /> 
 // ---cut---
