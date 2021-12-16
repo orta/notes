@@ -19,7 +19,7 @@ I'm throwing around a lot of terms there, so roughly there are three main respon
 - "Dependency Manager" -> Uses those packages, resolves the app's dependency requirements into a dependency tree and bundles them locally
 - "Project/Build Management" -> Handling application bootstrapping, tooling, test running, debugging etc
 
-I thought it wasn't CocoaPods' responsibility to handle the being a good project manager, giving the tool more focus on just getting your libraries code in order and passing that responsibility to Apple. This is non-trivial work on its own, then the scope of potential responsibilities for being a good project manager is massive. (That's not even covering the fact that the entire ecosystem shifts ever June when Apple release a year's worth of work to the public overnight. )
+I thought it wasn't CocoaPods' responsibility to handle the being a good project manager, giving the tool more focus on just getting your libraries code in order and passing that responsibility to Apple. This is non-trivial work on its own, then the scope of potential responsibilities for being a good project manager is massive. (That's not even covering the fact that the entire ecosystem shifts every June when Apple release a year's worth of work to the public overnight. )
 
 Yarn solved a lot of the problems around package and dependency management in their first OSS release, and because Yarn didn't have backwards compatibility to worry about also Yarn fixed most the flaws with npm's build management and then quickly took community ideas like Lerna's workspaces and integrated it natively into the project management aspects of the tool.
 
