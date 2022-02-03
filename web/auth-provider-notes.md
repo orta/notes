@@ -27,7 +27,7 @@ But I only really got responses from folks who work for those companies and peop
 
 I think it's a pretty compelling argument, [Zach](https://twitter.com/helvetica) has made the same case. 
 
-My biggest tension comes from the problem that having a _free user tier_ which could be drastically bigger could throw off the numbers completely. As an example, in [Flappy Royale](https://flappyroyale.io) we had about 100k free users over the course of 2-3 weeks, and settled at 250k over the next 2-3 months. It's not unreasonable to _prepare_ for those sorts of scales with (new thing) and suddenly **we're in the "Contact Us" section of Auth0's pricing** instantly. Tricky.
+My biggest tension comes from the problem that having a _free user tier_ which could be drastically bigger could throw off the numbers completely. As an example, in [Flappy Royale](https://flappyroyale.io) we had about 100k free users over the course of 2-3 weeks, and settled at 250k over the next 2-3 months. It's not unreasonable to _prepare_ for those sorts of scales with (new thing) and suddenly _we're in the "Contact Us" section of Auth0's pricing_ instantly. **Tricky**.
 
 Now that I'm sketching out how a native app should talk to the RedwoodJS app, it felt like a second time to re-look at the ecosystem and try to figure out what I want.
 
