@@ -4,7 +4,7 @@ At Artsy we wrote our own authentication system, I'd say this is pretty easy wit
 
 Now for (new thing) I've been back and forth on what to do with authentication. RedwoodJS the app framework I'm using has [quite strong opinions](https://redwoodjs.com/docs/authentication#self-hosted-auth-installation-and-setup) that authentication is something you should be using a separate service for. 
 
-RedwoodJS doesn't quite throw you out and demand you do this, they have a way to [set up a simple db-backed authentication system](https://github.com/redwoodjs/redwood/pull/2701), but it's built to be simple and extending it to cover all of the possible production cases is largely not recommended. I've been rolling with this for a while because I'm still wiping my db with regularity and simple auth is simple.
+RedwoodJS doesn't quite throw you out and demand you do this, they have a way to [set up a self hosted authentication system](https://github.com/redwoodjs/redwood/pull/2701), but it's built to be simple and extending it to cover all of the possible production cases is largely not recommended. I've been rolling with this for a while because I'm still wiping my db with regularity and simple auth is simple.
 
 I'm kinda on my second run of thinking about authentication as a service, the first time I [asked the internet](https://twitter.com/orta/status/1447984697812963334):
 
