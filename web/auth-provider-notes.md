@@ -1,7 +1,6 @@
 # Auth Provider Notes
 
-At Artsy we wrote our own authentication system, I'd say this is pretty easy with Rails via the [devise gem](https://github.com/heartcombo/devise) and I don't think we ever really had much of a debate about moving off to something else. For [Capture](https://cloudcapture.it) we offloaded auth entirely to Zoom, meaning we implmented no authentication system ourselves and used the zoom user ID as the key identifier. 
-
+At Artsy we wrote our own authentication system, I'd say this is pretty easy with Rails via the [devise gem](https://github.com/heartcombo/devise) and I don't think we ever really had much of a debate about moving off to something else. There was always going to be someone to ensure that everything worked. For [Capture](https://cloudcapture.it) we offloaded auth entirely to Zoom, meaning we implemented no authentication system ourselves and used the zoom user ID as the key identifier. This meant we never needed to think about the long term ramifications of auth.
 
 Now for (new thing) I've been back and forth on what to do with authentication. RedwoodJS the app framework I'm using has [quite strong opinions](https://redwoodjs.com/docs/authentication#self-hosted-auth-installation-and-setup) that authentication is something you should be using a separate service for. 
 
