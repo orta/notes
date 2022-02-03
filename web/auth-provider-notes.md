@@ -24,9 +24,13 @@ But I only really got responses from folks who work for those companies and peop
 
 > Yes, the cost goes up as the user base goes up – but … guess what … everything about web apps gets more expensive one you have to support more users.
 
-I think it's a pretty compelling argument, [Zach](https://twitter.com/helvetica) has made the same case. 
+I think it's a pretty compelling argument, [Zach](https://twitter.com/helvetica) has made the same case. It's definitely worth exploring authentication as a service.
 
-My biggest tension comes from the problem that having a _free user tier_ which could be drastically bigger could throw off the numbers completely. As an example, in [Flappy Royale](https://flappyroyale.io) we had about 100k free users over the course of 2-3 weeks, and settled at 250k over the next 2-3 months. It's not unreasonable to _prepare_ for those sorts of scales with (new thing) and suddenly _we're in the "Contact Us" section of Auth0's pricing_ instantly. **Tricky**.
+My biggest tension comes from the problem that we're likely to have a _free user tier_ which could be drastically bigger could throw off the numbers completely. As an example, in [Flappy Royale](https://flappyroyale.io) (the last game we collaborated on) we had about 100k free users over the course of 2-3 weeks, and settled at ~250k over the next 2-3 months. Things dropped after a while but it was quite consistent for a few months before we started to slowly make the call that we couldn't get ads for the free accounts to scale.
+
+This means _to me_ it's not unreasonable to _prepare_ for those sorts of scales with (new thing) and but that means suddenly _we're in the "Contact Us" section of Auth0's pricing_ instantly, because the pricing somewhat assumes that all users are equally valuable. Tricky.
+
+( Which I think is reasonable to )
 
 Now that I'm sketching out how a native app should talk to the RedwoodJS app, it felt like a second time to re-look at the ecosystem and try to figure out what I want.
 
@@ -37,19 +41,19 @@ I know today I want:
 - Email or Phone + Password user auth (though I'm not offended by magic links) - we will probably allow some Oauth, but maybe not all
 - User model / Accounts will live in my DB in some form, so anything on the auth providers side is probably something I will need to duplicate
 - There could be a lot of users, who have good incentives to come back more regularly than once a month
-- Logins should persist for a long time, ideally be self refreshing somehow
 - I think internal organizational Oauth is something we will need to consider within a reasonable timeframe
+- Logins should persist for a long time, ideally be self refreshing somehow (I enjoy the JWT + refresh token technique [personally](https://artsy.github.io/blog/2018/06/18/On-Obsessive-Statelessness/))
 
 ### How should it work as a user?
 
 Effectively I want to give away the Login page, and the first page of the Signup page. In the future it might make sense to think about MFA
 
-### Things which will get an auth cut for
+### Things which will get an auth service cut for
 
 - No pricing calculator
-- A focus on "web3", it's a service which is literally blocking people signing up/logging in. If they can't be trusted to not join the grift, they can't be responsible for users.
+- A focus on "web3", it's a service which is literally blocking people signing up/logging in. If they can't be trusted to not join the big grift, they can't be responsible for my users.
 - Per user pricing, I'd be looking at too many free user accounts which would maybe make that unaffordable at the start 
-- No custom branding etc 
+- No custom branding etc (which everyone does)
 - Required hosting with the service
 
 ### Services
@@ -60,7 +64,7 @@ Effectively I want to give away the Login page, and the first page of the Signup
 
 - Azure Active Directory. Seems to mainly offer a way to re-use your Microsoft account. So no go.
 
-- Clerk.dev. Strong focus on Next, and providing UI components which is a nice touch. Not sure I'd use them, but it lowers the barriers for sure. Good design. Mentions web3 stuff a bit, but not too offensive. Seems to largely work with all oauth providers I'm interested in. Getting webhooks to ensure the DB stays in sync requires another service though. Pricing probably can't work  for us though, as it's per user.
+- Clerk.dev. Strong focus on Next, and providing UI components which is a nice touch. Not sure I'd use them, but it lowers the barriers for sure. Good design. Mentions web3 stuff a bit, but not too offensive. Seems to largely work with all oauth providers I'm interested in. Getting webhooks to ensure the DB stays in sync requires another service though. Pricing probably can't work  for us though, as it's per active user.
 
 - Firebase. I'm trying to avoid giving Google money. We used it with Flappy Royale and it worked well though.
 
@@ -68,11 +72,13 @@ Effectively I want to give away the Login page, and the first page of the Signup
 
 - Keycloak. OSS version of Auth0, tempting, though hosting it myself feels like I might have the same security issues I'd get from writing some of this myself. Had a recent CVE which would have required remembering to updating the server etc. Third-party [paid hosting](https://www.cloud-iam.com/#pricing) seems to be quite expensive per user. 
 
+- SuperTokens. OSS also, feels more consumer focused than Keycloak. I think I should give it a test run, but it does imply that we'd be straight in the 'contact us' bucket if using their hosting.
+
 - Supabase. Quite tempting to be honest, there's no upper bounds on users - people who have used Supabase seem to love it. We probably won't use too many other features but we could get it for auth and then maybe find more uses further down the line.
 
 - Playfab. A Microsoft games-oriented firebase competitor. We used it with Flappy Royale, doesn't really do auth as a service separately.
 
-- Magic.link. Turned off by web3 / blockchain / NFT. Didn't go any further than homepage.
+- Magic.link. Turned off by web3 / blockchain / NFT. Didn't go any further than homepage. (That said their pricing per _login_ is an interesting angle.)
 
 - Netlify Identity. Only works if you host on netlify, and I'm not doing that today.
 
@@ -81,11 +87,11 @@ Effectively I want to give away the Login page, and the first page of the Signup
 
 ### Alternatives
 
-- Build out a separate app just for auth? Why bother though, when we could just host FusionAuth?
+- Build out a separate app JS just for auth? Why bother though, when we could just host FusionAuth?
 
-- Find a way to have free users _not_ use authentication? We do want people to have some session state without users, maybe becoming a paid user is the only way to do any logging in at all? This feels a bit tricky to really pull off (and quite limiting overall) so is unlikely
+- Find a way to have free users _not_ use authentication? We have a good case to want people to have some session state without users, maybe becoming a paid user is the only way to do any logging in at all? This feels a bit tricky to really pull off (and quite limiting in the features we could have) so is unlikely to be an acceptable constraint on the long run.
 
 
 ### Summary
 
-I dunno. That's why it's notes. I think I might try prototype something in Supabase, and then give FusionAth a run before I make an decisions.
+I dunno. That's why it's notes. I think I might try prototype something in Supabase, and then give FusionAth a run before I make any decisions.
