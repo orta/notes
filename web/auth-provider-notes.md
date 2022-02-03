@@ -60,7 +60,7 @@ Effectively I want to give away the Login page, and the first page of the Signup
 
 - Azure Active Directory. Seems to mainly offer a way to re-use your Microsoft account. So no go.
 
-- Clerk.dev. Strong focus on Next, and providing UI components which is a nice touch. Not sure I'd use them, but it lowers the barriers for sure. Good design. Mentions web3 stuff a bit, but not too offensive. Seems to largely work with all oauth providers I'm interested in. Getting webhooks to ensure the DB stays in sync requires another service though. Pricing probably can't work 
+- Clerk.dev. Strong focus on Next, and providing UI components which is a nice touch. Not sure I'd use them, but it lowers the barriers for sure. Good design. Mentions web3 stuff a bit, but not too offensive. Seems to largely work with all oauth providers I'm interested in. Getting webhooks to ensure the DB stays in sync requires another service though. Pricing probably can't work  for us though, as it's per user.
 
 - Firebase. I'm trying to avoid giving Google money. We used it with Flappy Royale and it worked well though.
 
@@ -68,7 +68,7 @@ Effectively I want to give away the Login page, and the first page of the Signup
 
 - Keycloak. OSS version of Auth0, tempting, though hosting it myself feels like I might have the same security issues I'd get from writing some of this myself. Had a recent CVE which would have required remembering to updating the server etc. Third-party [paid hosting](https://www.cloud-iam.com/#pricing) seems to be quite expensive per user. 
 
-- Supabase. Quite tempting to be honest, there's no upper bounds on users - people who have used Supabase seem to love it. We probably won't use too many other features but it could maybe act as 
+- Supabase. Quite tempting to be honest, there's no upper bounds on users - people who have used Supabase seem to love it. We probably won't use too many other features but we could get it for auth and then maybe find more uses further down the line.
 
 - Playfab. A Microsoft games-oriented firebase competitor. We used it with Flappy Royale, doesn't really do auth as a service separately.
 
