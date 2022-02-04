@@ -8,9 +8,11 @@ Spotify is in the news for [their deal with Joe Rogan](https://www.theverge.com/
 - I have a family account which 2 other people use.
 - I enjoy the Discover weekly and Release Radar auto-playlists.
 - The desktop app has been a pretty consistent experience for the last 12 years.
-- I don't use a phone, so mobile experience is 
+- I don't use a phone, so mobile experience is irrelevant
 
 My musical taste is pretty flexible, [it's mostly Punk with some Pop-Punk and some weird experimental metal](https://open.spotify.com/playlist/00vgjOug9CRCcrOBVTIK6o?si=3a018112727a4195).
+
+I'm trying to think about it long term, I've been paying for Spotify since it was EU only back in 2010 and switched to a family plan when it came out - so it's reasonable enough to think that having access to music I enjoy comes to about $2000 a decade. If I had spent that money on buying tracks would I be in a different place? A lot of the good recommendation tooling in Spotify is new, and so how much value did I get from the full access to the streaming library?
 
 ### All Options
 
@@ -36,11 +38,11 @@ I think this table is a good overview of [every possible option](https://soundii
 
 I like music streaming, but the core thing is that I mostly listen to the same stuff and (with the exception of music so far) prefer to own something over rent. 
 
-- Bandcamp. I'm largely uninterested in the social aspects of bandcamp. [My band uses it](https://kieronononon.bandcamp.com). 
+- Bandcamp. I'm largely uninterested in the social aspects of bandcamp. [My band uses it](https://kieronononon.bandcamp.com). The [artist share pitch](https://bandcamp.com/about) is great and it feels like they're trying to do some good stuff.
 
-- Torrents. I mean, I don't think I'd feel too guilty grabbing some of the albums I've bought on vinyl before, or ordered merch from but it's not a long-term sustainable model. 
+- Torrents. I mean, I don't think I'd feel too guilty grabbing some of the albums I've bought on vinyl before, or ordered merch - and I'd probably be OK with stretching that to artists I've played on repeat for 5+ years. Howver, it's not a long-term sustainable model because the bands I enjoy tend to not be too mainstream. 
 
 ### General Plans
 
 I think I'll try SoundCloud Go+ for the trial (ergh, got to give a card ahead of time though) to have a sense if that work. 
-If not then I think I'm going back to downloading files and abandoning my wife + others to either Spotify ads or drag them to soundcloud.
+If not then I think I'm going back to grabbing albums on bandcamp, downloading files and abandoning my wife + others to either Spotify ads or drag them to soundcloud.
