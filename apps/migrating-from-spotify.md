@@ -1,6 +1,6 @@
 # Migrating from Spotify
 
-My core tension with Spotify's growth has been about the expansion into Podcasts, and how that changes the app and music streaming services over time. I've largely been able to handle that by hacking the desktop apps source code to de-gunk it, but there's also a more fundamental feeling that they are ruining an open ecosystem and there's not many of those left on the web. 
+My core tension with Spotify's growth has been about the expansion into Podcasts, and how that [changes](https://twitter.com/search?q=from%3A%40orta%20spotify&src=typed_query) the app and music streaming services over time. I've largely been able to handle that by [hacking](https://github.com/khanhas/spicetify-cli) the desktop apps source code to de-gunk it, but there's also a more fundamental feeling that they are ruining an open ecosystem and there's not many of those left on the web. 
 
  But once again, Spotify is in the news for [their deal with Joe Rogan](https://www.theverge.com/2022/2/3/22915456/spotify-ceo-joe-rogan-daniel-ek-town-hall-speech-platform-podcast), it feels like about once a year I've thought of migrating away from Spotify but never quite figured out an answer to what leaving Spotify looks like.  I figured maybe I should get around to it this time.
 
