@@ -1,6 +1,6 @@
 # Migrating from Spotify
 
-Spotify is in the news for [their deal with Joe Rogan](https://www.theverge.com/2022/2/3/22915456/spotify-ceo-joe-rogan-daniel-ek-town-hall-speech-platform-podcast), it feels like about once a year I've thought of migrating away from Spotify but never quite figured out an solid solution. I figured maybe I should get around to it this time.
+My core tension with Spotify's growth has been about the expansion into Podcasts, and how that changes the app and music streaming services over time. But once again, Spotify is in the news for [their deal with Joe Rogan](https://www.theverge.com/2022/2/3/22915456/spotify-ceo-joe-rogan-daniel-ek-town-hall-speech-platform-podcast), it feels like about once a year I've thought of migrating away from Spotify but never quite figured out an answer to what leaving Spotify looks like.  I figured maybe I should get around to it this time.
 
 ### How I use Spotify
 
