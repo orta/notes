@@ -10,19 +10,29 @@ I'm kinda on my second run of thinking about authentication as a service, the fi
 
 > I’ve been debating for a few weeks now about the trade-offs of using auth0/etc instead of self building identity management. Anyone got strong opinions either way?
 
-But I only really got responses from folks who work for those companies and people who weren't sold on the pricing model. I think [the best argument](https://community.redwoodjs.com/t/local-jwt-auth-implementation/1359/5) I've heard came from [@dthyresson](https://twitter.com/dthyresson):
+But I only really got responses from folks who work for those companies and people who weren't sold on the pricing model. I think has [two good](https://community.redwoodjs.com/t/pure-social-authentication/2644/6) [arguments](https://community.redwoodjs.com/t/local-jwt-auth-implementation/1359/5) I've heard came from [@dthyresson](https://twitter.com/dthyresson):
 
 > I don’t meant to be the bearer (haha pun intended!) of bad news, but web apps cost money. Infrastructure costs money.
-
+>
 > And I don’t work for Auth0 or anyone else, but I have been in the position to do a cost benefit and risk analysis of choosing a service or rolling one’s own and going with a service always wins. (And I know in certain countries some of these services are not an option – I get that. There is always a contrary case and that happens.)
-
-> Auth0 starts charging at 1,000+ monthly active users. And I think that is $23 US or $276 per year.
-
+>
+>
 > I’ve freelanced and hired developers and in the best case scenario that – for the year – is 2 hours of work or maybe 5 if you can pay someone $~50/hr. But even if you pay them $15/hr (which believe it or not is $3 more than most minimum wage jobs in the US). That’s 4 hours work for 5 days (or 1 week). And you might say, with this auth client I can get it up and running in an hour – and you’d be right. But - you don’t have: password change, email verification, rules pipeline, RBAC support a login/logout or any UI, etc.
 
 > So, for the cost of a handful or two hours of work – you have an Auth services than can service 1,000 active users per month. For. A. Year.
-
+>
 > Yes, the cost goes up as the user base goes up – but … guess what … everything about web apps gets more expensive one you have to support more users.
+
+Plus:
+
+> If you are not careful you’ll have to build soooo much. Mail. Password strength. Auditing. Admin api. Callback whitelisting. App and user metadata. Multiple identity provider support. Account blocking. Login attempt anomaly detection. IP address spoof detection. Token refreshing.
+>
+> Then you’ll want passwordless and magic link. And then SMS one time password authentication. And then support multiple phone providers.
+>
+> Oh and then 2FA or even MFA.
+>
+> And then you’ll have to do GDPR protection on all your user profile data.
+
 
 I think it's a pretty compelling argument, [Zach](https://twitter.com/helvetica) has made the same case. It's definitely worth exploring authentication as a service.
 
